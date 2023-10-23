@@ -1,7 +1,0 @@
----
-name: testviz
-author: My Name <my-name@my-org.org>
-description: This is the project description.
-source_schema_path: src/testviz/schema/testviz.yaml
-google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
-google_sheet_tabs: personinfo enums
