@@ -11,7 +11,7 @@ def get_schemaview() -> Any:
 
     """
     # Relative path to the file
-    file_path = '../schema/testviz.yaml'
+    file_path = 'src/testviz/schema/testviz.yaml'
 
     # Read the file content
     with open(file_path, 'r') as file:
@@ -141,21 +141,14 @@ def convert_category_to_trapi_format(english_category: str) -> str:
     return "".join([f"{word[0].upper()}{word[1:]}" for word in english_category.split(" ")])
 
 
-# def categories(linkml_version=None):
-#     category_tree, linkml_version = load_category_tree_data(linkml_version)
-#     return render_template("categories.html",
-#                            categories=category_tree,
-#                            linkml_version=linkml_version)
-
-
 if __name__ == "__main__":
     pred_data = load_predicate_tree_data()
 
-    with open('../../../views/predicates.json', 'w') as json_file:
+    with open('views/predicates.json', 'w') as json_file:
         json.dump(pred_data, json_file, indent=4)
 
     cat_data = load_category_tree_data()
 
-    with open('../../../views/categories.json', 'w') as json_file:
+    with open('views/categories.json', 'w') as json_file:
         json.dump(cat_data, json_file, indent=4)
 

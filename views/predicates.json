@@ -1,5 +1,9 @@
 [
     {
+        "name": "test",
+        "children": [{"name": "test2", "parent": "test"}, {"name": "test3", "parent": "related_to"}]
+    },
+    {
         "name": "related_to",
         "children": [
             {
