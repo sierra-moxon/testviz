@@ -164,6 +164,7 @@
             }
 
             // Toggle children on click.
+// Toggle children on click.
             function click(d) {
                 if (d.children) {
                     d._children = d.children;
@@ -172,7 +173,14 @@
                     d.children = d._children;
                     d._children = null;
                 }
-                update(d);
+
+                // Determine the root node of the clicked node
+                var rootNode = d;
+                while (rootNode.parent) {
+                    rootNode = rootNode.parent;
+                }
+
+                update(rootNode);
             }
         });
     </script>
