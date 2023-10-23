@@ -34,9 +34,10 @@
                 return 2000;
             }
 
+            // ************** Generate the tree diagram	 *****************
             var margin = {top: 10, right: 0, bottom: 10, left: 80},
-                width = 1500 - margin.right - margin.left,
-                rawHeight = getHeight();
+                width = 1460 - margin.right - margin.left,
+                rawHeight = getHeight()
             height = rawHeight - margin.top - margin.bottom;
 
             var i = 0,
@@ -73,7 +74,7 @@
 
                 // Normalize for fixed-depth.
                 nodes.forEach(function (d) {
-                    d.y = d.depth * 240;
+                    d.y = d.depth * 186;
                 });
 
                 // Update the nodes…
@@ -186,7 +187,7 @@
                 update(d);
             }
         });
-        </script>
-    </div>
+    </script>
+</div>
 </body>
 </html>
