@@ -24,29 +24,22 @@
             }
             var treeData = jsonData;
 
-            // Any additional code that uses treeData should be placed here
-
             function getHeight() {
                 return 2200;
             }
 
-            // ************** Generate the tree diagram	 *****************
             var margin = {top: 10, right: 0, bottom: 10, left: 80},
                 width = 1460 - margin.right - margin.left,
-                rawHeight = getHeight()
-            height = rawHeight - margin.top - margin.bottom;
+                rawHeight = getHeight(),
+                height = rawHeight - margin.top - margin.bottom;
 
             var i = 0,
-                duration = 750,
-                root;
+                duration = 750;
 
-            var tree = d3.layout.tree()
-                .size([height, width]);
-
-            var diagonal = d3.svg.diagonal()
-                .projection(function (d) {
-                    return [d.y, d.x];
-                });
+            var tree = d3.layout.tree().size([height, width]);
+            var diagonal = d3.svg.diagonal().projection(function (d) {
+                return [d.y, d.x];
+            });
 
             var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.right + margin.left)
@@ -54,13 +47,13 @@
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            root = treeData[0];
-            root.x0 = height / 2;
-            root.y0 = 0;
+            // Here's the key change: Iterate over each tree in your data.
+            treeData.forEach(function (root, treeIndex) {
+                root.x0 = height / 2 + treeIndex * 200; // Offset each tree vertically.
+                root.y0 = 0;
 
-            update(root);
-
-            d3.select(self.frameElement).style("height", "500px");
+                update(root);
+            });
 
             function update(source) {
 
