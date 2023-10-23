@@ -24,22 +24,29 @@
             }
             var treeData = jsonData;
 
+            // Any additional code that uses treeData should be placed here
+
             function getHeight() {
                 return 2200;
             }
 
+            // ************** Generate the tree diagram	 *****************
             var margin = {top: 10, right: 0, bottom: 10, left: 80},
                 width = 1460 - margin.right - margin.left,
-                rawHeight = getHeight(),
-                height = rawHeight - margin.top - margin.bottom;
+                rawHeight = getHeight()
+            height = rawHeight - margin.top - margin.bottom;
 
             var i = 0,
-                duration = 750;
+                duration = 750,
+                root;
 
-            var tree = d3.layout.tree().size([height, width]);
-            var diagonal = d3.svg.diagonal().projection(function (d) {
-                return [d.y, d.x];
-            });
+            var tree = d3.layout.tree()
+                .size([height, width]);
+
+            var diagonal = d3.svg.diagonal()
+                .projection(function (d) {
+                    return [d.y, d.x];
+                });
 
             var svg = d3.select("body").append("svg")
                 .attr("width", width + margin.right + margin.left)
@@ -47,15 +54,16 @@
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            // Here's the key change: Iterate over each tree in your data.
-            treeData.forEach(function (root, treeIndex) {
-                root.x0 = height / 2 + treeIndex * 200; // Offset each tree vertically.
-                root.y0 = 0;
+            root = treeData[0];
+            root.x0 = height / 2;
+            root.y0 = 0;
 
-                update(root);
-            });
+            update(root);
 
-            function update(root) {
+            d3.select(self.frameElement).style("height", "500px");
+
+            function update(source) {
+
                 // Compute the new tree layout.
                 var nodes = tree.nodes(root).reverse(),
                     links = tree.links(nodes);
@@ -75,7 +83,7 @@
                 var nodeEnter = node.enter().append("g")
                     .attr("class", "node")
                     .attr("transform", function (d) {
-                        return "translate(" + root.y0 + "," + root.x0 + ")";
+                        return "translate(" + source.y0 + "," + source.x0 + ")";
                     })
                     .on("click", click);
 
@@ -118,7 +126,7 @@
                 var nodeExit = node.exit().transition()
                     .duration(duration)
                     .attr("transform", function (d) {
-                        return "translate(" + root.y + "," + root.x + ")";
+                        return "translate(" + source.y + "," + source.x + ")";
                     })
                     .remove();
 
@@ -138,8 +146,8 @@
                 link.enter().insert("path", "g")
                     .attr("class", "link")
                     .attr("d", function (d) {
-                        var o = {x: root.x0, y: root.y0};
-                        return diagonal({root: o, target: o});
+                        var o = {x: source.x0, y: source.y0};
+                        return diagonal({source: o, target: o});
                     });
 
                 // Transition links to their new position.
@@ -151,8 +159,8 @@
                 link.exit().transition()
                     .duration(duration)
                     .attr("d", function (d) {
-                        var o = {x: root.x, y: root.y};
-                        return diagonal({root: o, target: o});
+                        var o = {x: source.x, y: source.y};
+                        return diagonal({source: o, target: o});
                     })
                     .remove();
 
@@ -164,7 +172,6 @@
             }
 
             // Toggle children on click.
-// Toggle children on click.
             function click(d) {
                 if (d.children) {
                     d._children = d.children;
@@ -173,14 +180,7 @@
                     d.children = d._children;
                     d._children = null;
                 }
-
-                // Determine the root node of the clicked node
-                var rootNode = d;
-                while (rootNode.parent) {
-                    rootNode = rootNode.parent;
-                }
-
-                update(rootNode);
+                update(d);
             }
         });
     </script>
