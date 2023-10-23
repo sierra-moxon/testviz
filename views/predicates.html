@@ -75,7 +75,7 @@
                 var nodeEnter = node.enter().append("g")
                     .attr("class", "node")
                     .attr("transform", function (d) {
-                        return "translate(" + source.y0 + "," + source.x0 + ")";
+                        return "translate(" + root.y0 + "," + root.x0 + ")";
                     })
                     .on("click", click);
 
@@ -118,7 +118,7 @@
                 var nodeExit = node.exit().transition()
                     .duration(duration)
                     .attr("transform", function (d) {
-                        return "translate(" + source.y + "," + source.x + ")";
+                        return "translate(" + root.y + "," + root.x + ")";
                     })
                     .remove();
 
@@ -138,8 +138,8 @@
                 link.enter().insert("path", "g")
                     .attr("class", "link")
                     .attr("d", function (d) {
-                        var o = {x: source.x0, y: source.y0};
-                        return diagonal({source: o, target: o});
+                        var o = {x: root.x0, y: root.y0};
+                        return diagonal({root: o, target: o});
                     });
 
                 // Transition links to their new position.
@@ -151,8 +151,8 @@
                 link.exit().transition()
                     .duration(duration)
                     .attr("d", function (d) {
-                        var o = {x: source.x, y: source.y};
-                        return diagonal({source: o, target: o});
+                        var o = {x: root.x, y: root.y};
+                        return diagonal({root: o, target: o});
                     })
                     .remove();
 
