@@ -1,0 +1,72 @@
+[
+    {
+        "name": "NamedThing",
+        "parent": null,
+        "children": [
+            {
+                "name": "activity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "administrative_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "attribute",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "biological_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "chemical_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "clinical_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "device",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "diagnostic_aid",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "event",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "information_content_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "organism_taxon",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "phenomenon",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "physical_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "planetary_entity",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "procedure",
+                "parent": "NamedThing"
+            },
+            {
+                "name": "treatment",
+                "parent": "NamedThing"
+            }
+        ]
+    }
+]
