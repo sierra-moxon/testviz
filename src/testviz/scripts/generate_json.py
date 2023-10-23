@@ -111,25 +111,25 @@ def load_category_er_tree_data(return_parent_to_child_dict: bool = False) -> tup
 
     # First build the standard category tree
     category_tree, parent_to_child_map = load_category_tree_data(return_parent_to_child_dict=True)
-    # child_to_parent_map = {child_name: parent_name for parent_name, children_names in parent_to_child_map.items()
-    #                       for child_name in children_names}
+    child_to_parent_map = {child_name: parent_name for parent_name, children_names in parent_to_child_map.items()
+                          for child_name in children_names}
 
     # Then move gene/protein-related subbranches under one new sub-branch within BiologicalEntity
-    # biological_entity_sub_branches = parent_to_child_map["BiologicalEntity"]
-    # sub_branches_to_keep = {"BiologicalProcessOrActivity", "DiseaseOrPhenotypicFeature", "OrganismalEntity"}
-    # sub_branches_to_move = biological_entity_sub_branches.difference(sub_branches_to_keep)
-    # new_sub_branch = "GeneticOrMolecularBiologicalEntity"
-    # for sub_branch_to_move in sub_branches_to_move:
-    #     child_to_parent_map[sub_branch_to_move] = new_sub_branch
-    # parent_to_child_map_revised = defaultdict(set)
-    # for child, parent in child_to_parent_map.items():
-    #     parent_to_child_map_revised[parent].add(child)
-    # parent_to_child_map_revised["BiologicalEntity"].add(new_sub_branch)
+    biological_entity_sub_branches = parent_to_child_map["BiologicalEntity"]
+    sub_branches_to_keep = {"BiologicalProcessOrActivity", "DiseaseOrPhenotypicFeature", "OrganismalEntity"}
+    sub_branches_to_move = biological_entity_sub_branches.difference(sub_branches_to_keep)
+    new_sub_branch = "GeneticOrMolecularBiologicalEntity"
+    for sub_branch_to_move in sub_branches_to_move:
+        child_to_parent_map[sub_branch_to_move] = new_sub_branch
+    parent_to_child_map_revised = defaultdict(set)
+    for child, parent in child_to_parent_map.items():
+        parent_to_child_map_revised[parent].add(child)
+    parent_to_child_map_revised["BiologicalEntity"].add(new_sub_branch)
 
     root_node = {"name": "NamedThing", "parent": None}
-    category_tree_for_er = get_tree_node_recursive(root_node, parent_to_child_map)
+    category_tree_for_er = get_tree_node_recursive(root_node, parent_to_child_map_revised)
 
-    return ([category_tree_for_er], parent_to_child_map) if return_parent_to_child_dict else ([category_tree_for_er])
+    return ([category_tree_for_er], parent_to_child_map_revised) if return_parent_to_child_dict else ([category_tree_for_er])
 
 
 def convert_predicate_to_trapi_format(english_predicate: str) -> str:
