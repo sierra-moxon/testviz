@@ -152,11 +152,11 @@ def convert_category_to_trapi_format(english_category: str) -> str:
 if __name__ == "__main__":
     pred_data = load_predicate_tree_data()
 
-    with open('../../../static/predicates.json', 'w') as json_file:
+    with open('../../../views/predicates.json', 'w') as json_file:
         json.dump(pred_data, json_file, indent=4)
 
     cat_data = load_category_tree_data()
 
-    with open('../../../static/categories.json', 'w') as json_file:
+    with open('../../../views/categories.json', 'w') as json_file:
         json.dump(cat_data, json_file, indent=4)
 
