@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "ef7ff16925321a2abdbaa5a2ba5db8aa83ebf24f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "testviz",
+      "__project_slug": "testviz",
+      "github_org": "sierra-moxon",
+      "__source_path": "src/testviz/schema/testviz.yaml",
+      "project_description": "This is the project description.",
+      "full_name": "My Name",
+      "email": "my-name@my-org.org",
+      "__author": "My Name <my-name@my-org.org>",
+      "license": "MIT",
+      "main_schema_class": "Person",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
