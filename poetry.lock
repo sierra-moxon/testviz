@@ -1771,25 +1771,25 @@ pyyaml = "*"
 
 [[package]]
 name = "rdflib"
-version = "7.0.0"
+version = "6.0.0"
 description = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
 category = "main"
 optional = false
-python-versions = ">=3.8.1,<4.0.0"
+python-versions = ">=3.7"
 files = [
-    {file = "rdflib-7.0.0-py3-none-any.whl", hash = "sha256:0438920912a642c866a513de6fe8a0001bd86ef975057d6962c79ce4771687cd"},
-    {file = "rdflib-7.0.0.tar.gz", hash = "sha256:9995eb8569428059b8c1affd26b25eac510d64f5043d9ce8c84e0d0036e995ae"},
+    {file = "rdflib-6.0.0-py3-none-any.whl", hash = "sha256:bb24f0058070d5843503e15b37c597bc3858d328d11acd9476efad3aa62f555d"},
+    {file = "rdflib-6.0.0.tar.gz", hash = "sha256:7ce4d757eb26f4dd43205ec340d8c097f29e5adfe45d6ea20238c731dc679879"},
 ]
 
 [package.dependencies]
-isodate = ">=0.6.0,<0.7.0"
-pyparsing = ">=2.1.0,<4"
+isodate = "*"
+pyparsing = "*"
+setuptools = "*"
 
 [package.extras]
-berkeleydb = ["berkeleydb (>=18.1.0,<19.0.0)"]
-html = ["html5lib (>=1.0,<2.0)"]
-lxml = ["lxml (>=4.3.0,<5.0.0)"]
-networkx = ["networkx (>=2.0.0,<3.0.0)"]
+docs = ["sphinx (<5)", "sphinxcontrib-apidoc"]
+html = ["html5lib"]
+tests = ["black (==21.7b0)", "coverage", "doctest-ignore-unicode (==0.1.2)", "flake8", "html5lib", "networkx", "nose (==1.3.7)", "nose-timer"]
 
 [[package]]
 name = "rdflib-jsonld"
@@ -2118,7 +2118,7 @@ ontodev-cogs = ">=0.3.3,<0.4.0"
 name = "setuptools"
 version = "68.2.2"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -2201,24 +2201,22 @@ sparqlwrapper = ">=1.8.2"
 
 [[package]]
 name = "sparqlwrapper"
-version = "2.0.0"
+version = "1.8.5"
 description = "SPARQL Endpoint interface to Python"
 category = "dev"
 optional = false
-python-versions = ">=3.7"
+python-versions = "*"
 files = [
-    {file = "SPARQLWrapper-2.0.0-py3-none-any.whl", hash = "sha256:c99a7204fff676ee28e6acef327dc1ff8451c6f7217dcd8d49e8872f324a8a20"},
-    {file = "SPARQLWrapper-2.0.0.tar.gz", hash = "sha256:3fed3ebcc77617a4a74d2644b86fd88e0f32e7f7003ac7b2b334c026201731f1"},
+    {file = "SPARQLWrapper-1.8.5-py2-none-any.whl", hash = "sha256:357ee8a27bc910ea13d77836dbddd0b914991495b8cc1bf70676578155e962a8"},
+    {file = "SPARQLWrapper-1.8.5-py3-none-any.whl", hash = "sha256:c7f9c9d8ebb13428771bc3b6dee54197422507dcc3dea34e30d5dcfc53478dec"},
+    {file = "SPARQLWrapper-1.8.5.tar.gz", hash = "sha256:d6a66b5b8cda141660e07aeb00472db077a98d22cb588c973209c7336850fb3c"},
 ]
 
 [package.dependencies]
-rdflib = ">=6.1.1"
+rdflib = ">=4.0"
 
 [package.extras]
-dev = ["mypy (>=0.931)", "pandas (>=1.3.5)", "pandas-stubs (>=1.2.0.48)", "setuptools (>=3.7.1)"]
-docs = ["sphinx (<5)", "sphinx-rtd-theme"]
 keepalive = ["keepalive (>=0.5)"]
-pandas = ["pandas (>=1.3.5)"]
 
 [[package]]
 name = "sqlalchemy"
@@ -2635,4 +2633,4 @@ docs = []
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10.1"
-content-hash = "2219f116d2dd928299df248203eb843c76b471b24b00d8c39269c7370852306f"
+content-hash = "e98b2f6f8b0a42ab1d587923adb35bfb2b3d5f4829dc7b4135fd882a268ccbe2"

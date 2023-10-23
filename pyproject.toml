@@ -10,6 +10,7 @@ include = ["README.md", "src/testviz/schema", "project"]
 [tool.poetry.dependencies]
 python = "^3.10.1"
 linkml-runtime = "^1.1.24"
+rdflib = "6.0.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
