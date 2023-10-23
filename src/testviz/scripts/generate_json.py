@@ -1,11 +1,7 @@
 from collections import defaultdict
-from typing import Tuple, List, Any
 import json
-import subprocess
 from typing import Any
-import yaml
 from linkml_runtime.utils.schemaview import SchemaView
-from linkml_runtime.linkml_model.meta import SchemaDefinition
 
 
 def get_schemaview() -> Any:
@@ -82,16 +78,19 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
     """
     sv = get_schemaview()
     parent_to_child_dict = defaultdict(set)
+    category_tree = {}
     for class_name in sv.all_classes(imports=True):
         cls = sv.get_class(class_name)
         class_name = convert_predicate_to_trapi_format(class_name)
         if cls.is_a:
             parent_name_english = cls.is_a
-            parent_name = convert_category_to_trapi_format(parent_name_english)
-            parent_to_child_dict[parent_name].add(class_name)
-
-    root_node = {"name": "NamedThing", "parent": None}
-    category_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
+            if parent_name_english:
+                parent_name = convert_predicate_to_trapi_format(parent_name_english)
+                parent_to_child_dict[parent_name].add(class_name)
+                root_node = {"name": "NamedThing", "parent": None}
+                category_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
+                parent_name = convert_category_to_trapi_format(parent_name_english)
+                parent_to_child_dict[parent_name].add(class_name)
 
     return ([category_tree], parent_to_child_dict) if return_parent_to_child_dict else ([category_tree])
 
