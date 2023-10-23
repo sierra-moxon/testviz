@@ -8,15 +8,6 @@ This is the project description.
 
 ## Repository Structure
 
-* [examples/](examples/) - example data
-* [project/](project/) - project files (do not edit these)
-* [src/](src/) - source files (edit these)
-  * [testviz](src/testviz)
-    * [schema](src/testviz/schema) -- LinkML schema
-      (edit this)
-    * [datamodel](src/testviz/datamodel) -- generated
-      Python datamodel
-* [tests/](tests/) - Python tests
 
 ## Developer Documentation
 

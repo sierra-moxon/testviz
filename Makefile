@@ -89,7 +89,7 @@ update-linkml:
 create-data-harmonizer:
 	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
 
-all: site
+all: site gen-viz-data
 site: gen-project gendoc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
