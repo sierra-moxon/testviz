@@ -135,13 +135,13 @@ multiple qualifiers, supported by rich evidence and provenance metadata. For exa
 view of a complex Disease to Phenotype Association instance. 
 
 Figure 1: A layered view of a simple a Biolink Association object.
-![](../../images/onion.png))
+![](images/onion.png))
 
 Figure 2: An Association representing the Statement that “Late Stage Ebola has phenotype Severe Bleeding with 92%  
 penetrance in adults”, and some provenance metadata supporting this. This representation leans heavily on qualifiers 
 for representing Statement semantics. 
 
-![](../../images/example_onion.png)
+![](images/example_onion.png)
 
 At the highest level we distinguish two kinds of qualifiers that contribute to an Association Statement: 
 - node qualifiers (aka subject / object qualifiers) extend or refine the meaning of an Association subject or object concept; 

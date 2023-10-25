@@ -8,14 +8,14 @@ Note: association object has a "qualifiers" slot that is not currently modeled t
 instead this is a left-over property that will be deprecated when more of the qualifier methodology is 
 instantiated in the model. 
 
-![](../../images/onion.png)
+![](images/onion.png)
 
 An example of this is below, modeling the knowledge statement: 
 ```bash
 Late Stage Ebola has phenotype Severe Bleeding with 92%  penetrance in adults
 ```
 
-![](../../images/example_onion.png)
+![](images/example_onion.png)
 
 ## For guidance in migrating existing predicates, to their fully qualified Association-based counterparts, please refer to: 
 
@@ -26,7 +26,7 @@ to their equivalent Association-based, qualifiier representation.
 - [Association semantics using qualifiers](association-examples-with-qualifiers.md)
 This is a general guide with examples of fully qualified Associations in the chemical-to-gene domain.
 
-- [Predicate transformation table](../../images/predicate_transformation.pdf)
+- [Predicate transformation table](images/predicate_transformation.pdf)
 View the predicate transformations to qualifiers in the predicate hierarchy
 
 
@@ -257,7 +257,7 @@ Please see examples in the [TRAPI repository](https://github.com/NCATSTranslator
 
 ### Summary of chemical changes in Biolink-Model 2.0.0
 
-![Chemical Hierarchy for Biolink-Model 2.0.0](../../images/chemical_entity.png)
+![Chemical Hierarchy for Biolink-Model 2.0.0](images/chemical_entity.png)
 
  * Refactor of the 'Molecular Entity' and 'Chemical Substance' classes and hierarchy.
  * 'Genomic Entity' is now a 'mixin' rather than a class.
@@ -274,8 +274,8 @@ Please see examples in the [TRAPI repository](https://github.com/NCATSTranslator
  * New association slots (edge properties): 'knowledge source', 'primary knowledge source', 'original knowledge source', 'aggregator knowledge source', 'supporting data source'
 
 ### Summary of reaction related changes in Biolink-Model 2.0.0
-![reaction_image_cont](../../images/reactions-cont.png) 
-![reaction_image](../../images/reactions.png) 
+![reaction_image_cont](images/reactions-cont.png) 
+![reaction_image](images/reactions.png) 
 
  * New association classes: ‘Reaction To Participant Association’, ‘Reaction To Catalyst Association’.
  * New predicates (and inverses): 'catalyzes', 'has substrate', 'consumes'.
