@@ -43,7 +43,6 @@ endif
 # when the user types "make" they should get help info
 help: status
 	@echo ""
-	@echo "make setup -- initial setup (run this first)"
 	@echo "make site -- makes site locally"
 	@echo "make install -- install dependencies"
 	@echo "make test -- runs tests"
