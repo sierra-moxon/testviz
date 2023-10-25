@@ -32928,7 +32928,7 @@
   "source_file": "testviz.yaml",
   "source_file_date": "2023-10-25T15:44:55",
   "source_file_size": 362053,
-  "generation_date": "2023-10-25T15:51:57",
+  "generation_date": "2023-10-25T16:28:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/testviz.context.jsonld",

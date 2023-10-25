@@ -111,9 +111,11 @@ gen-project: $(PYMODEL)
 		--include jsonschema \
 		--include owl \
 		--include python \
-		--include pydantic \
 		--include rdf \
 		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	$(RUN) gen-pydantic --pydantic_version 1 src/testviz/schema/testviz.yaml > $(PYMODEL)/pydanticmodel.py
+	$(RUN) gen-pydantic --pydantic_version 2 src/testviz/schema/testviz.yaml > $(PYMODEL)/pydanticmodel_v2.py
+
 
 
 test: test-schema test-python test-examples
