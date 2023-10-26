@@ -5,8 +5,6 @@ layout: default
 nav_order: 6
 ---
 
-## FAQ
-
 ### How do I type nodes in a graph with concepts that are not in the Biolink Model?
 
 Each node in a knowledge graph can be typed using the slot `category`.
