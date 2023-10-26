@@ -57,6 +57,8 @@ def load_predicate_tree_data(return_parent_to_child_dict: bool = False) -> list[
     predicate_tree = []
     for slot_name in sv.all_slots(imports=True):
         slot = sv.get_slot(slot_name)
+        if slot.deprecated:
+            continue
         slot_name = convert_predicate_to_trapi_format(slot_name)
         parent_name_english = slot.is_a
         if parent_name_english:
@@ -81,6 +83,8 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
     category_tree = {}
     for class_name in sv.all_classes(imports=True):
         cls = sv.get_class(class_name)
+        if cls.deprecated:
+            continue
         class_name = convert_predicate_to_trapi_format(class_name)
         if cls.is_a:
             parent_name_english = cls.is_a
@@ -141,14 +145,18 @@ def convert_category_to_trapi_format(english_category: str) -> str:
     return "".join([f"{word[0].upper()}{word[1:]}" for word in english_category.split(" ")])
 
 
-if __name__ == "__main__":
+def generate_viz_json():
     pred_data = load_predicate_tree_data()
 
-    with open('views/predicates.json', 'w') as json_file:
+    with open('src/docs/predicates.json', 'w') as json_file:
         json.dump(pred_data, json_file, indent=4)
 
     cat_data = load_category_tree_data()
 
-    with open('views/categories.json', 'w') as json_file:
+    with open('src/docs//categories.json', 'w') as json_file:
         json.dump(cat_data, json_file, indent=4)
+
+
+if __name__ == "__main__":
+    generate_viz_json()
 

@@ -219,14 +219,6 @@
                         ]
                     },
                     {
-                        "name": "amount_or_activity_decreased_by",
-                        "parent": "related_to_at_instance_level"
-                    },
-                    {
-                        "name": "amount_or_activity_increased_by",
-                        "parent": "related_to_at_instance_level"
-                    },
-                    {
                         "name": "assesses",
                         "parent": "related_to_at_instance_level"
                     },
@@ -285,10 +277,6 @@
                                         "parent": "correlated_with"
                                     }
                                 ]
-                            },
-                            {
-                                "name": "genetic_association",
-                                "parent": "associated_with"
                             },
                             {
                                 "name": "genetically_associated_with",
@@ -406,10 +394,6 @@
                     },
                     {
                         "name": "decreased_amount_in",
-                        "parent": "related_to_at_instance_level"
-                    },
-                    {
-                        "name": "decreases_amount_or_activity_of",
                         "parent": "related_to_at_instance_level"
                     },
                     {
@@ -645,10 +629,6 @@
                         "parent": "related_to_at_instance_level"
                     },
                     {
-                        "name": "increases_amount_or_activity_of",
-                        "parent": "related_to_at_instance_level"
-                    },
-                    {
                         "name": "interacts_with",
                         "parent": "related_to_at_instance_level",
                         "children": [
@@ -672,13 +652,7 @@
                                 "children": [
                                     {
                                         "name": "directly_physically_interacts_with",
-                                        "parent": "physically_interacts_with",
-                                        "children": [
-                                            {
-                                                "name": "binds",
-                                                "parent": "directly_physically_interacts_with"
-                                            }
-                                        ]
+                                        "parent": "physically_interacts_with"
                                     },
                                     {
                                         "name": "indirectly_physically_interacts_with",
