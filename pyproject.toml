@@ -7,6 +7,10 @@ license = "MIT"
 readme = "README.md"
 include = ["README.md", "src/testviz/schema", "project"]
 
+[tool.poetry.scripts]
+generate_viz_json = "src.testviz.scripts.generate_json:generate_viz_json"
+
+
 [tool.poetry.dependencies]
 python = "^3.10.1"
 linkml-runtime = "^1.1.24"

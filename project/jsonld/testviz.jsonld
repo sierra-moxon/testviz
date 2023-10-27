@@ -32926,9 +32926,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "testviz.yaml",
-  "source_file_date": "2023-10-23T11:04:24",
+  "source_file_date": "2023-10-25T15:44:55",
   "source_file_size": 362053,
-  "generation_date": "2023-10-23T14:27:10",
+  "generation_date": "2023-10-25T16:28:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/testviz.context.jsonld",

@@ -1,5 +1,5 @@
 # Auto generated from testviz.yaml by pythongen.py version: 0.0.1
-# Generation date: 2023-10-23T14:27:42
+# Generation date: 2023-10-25T16:28:52
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model

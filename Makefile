@@ -20,6 +20,7 @@ SHEET_MODULE = personinfo_enums
 SHEET_ID = $(shell ${SHELL} ./utils/get-value.sh google_sheet_id)
 SHEET_TABS = $(shell ${SHELL} ./utils/get-value.sh google_sheet_tabs)
 SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
+TEMPLATEDIR = doc-templates
 
 # environment variables
 include config.env
@@ -42,7 +43,6 @@ endif
 # when the user types "make" they should get help info
 help: status
 	@echo ""
-	@echo "make setup -- initial setup (run this first)"
 	@echo "make site -- makes site locally"
 	@echo "make install -- install dependencies"
 	@echo "make test -- runs tests"
@@ -85,17 +85,10 @@ update-template:
 update-linkml:
 	poetry add -D linkml@latest
 
-# EXPERIMENTAL
-create-data-harmonizer:
-	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
-
 all: site gen-viz-data
 site: gen-project gendoc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
-
-compile-sheets:
-	$(RUN) sheets2linkml --gsheet-id $(SHEET_ID) $(SHEET_TABS) > $(SHEET_MODULE_PATH).tmp && mv $(SHEET_MODULE_PATH).tmp $(SHEET_MODULE_PATH)
 
 # In future this will be done by conversion
 gen-examples:
@@ -104,7 +97,26 @@ gen-examples:
 # generates all project files
 
 gen-project: $(PYMODEL)
-	$(RUN) gen-project ${GEN_PARGS} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	# keep these in sync between PROJECT_FOLDERS and the includes/excludes for gen-project and test-schema
+	$(RUN) gen-project \
+		--exclude excel \
+		--include graphql \
+		--include jsonld \
+		--exclude markdown \
+		--include proto \
+		--exclude shacl \
+		--include shex \
+		--exclude sqlddl \
+		--include jsonldcontext \
+		--include jsonschema \
+		--include owl \
+		--include python \
+		--include rdf \
+		-d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	$(RUN) gen-pydantic --pydantic_version 1 src/testviz/schema/testviz.yaml > $(PYMODEL)/pydanticmodel.py
+	$(RUN) gen-pydantic --pydantic_version 2 src/testviz/schema/testviz.yaml > $(PYMODEL)/pydanticmodel_v2.py
+	cp src/testviz/schema/testviz.yaml testviz.yaml
+
 
 
 test: test-schema test-python test-examples
@@ -155,8 +167,14 @@ $(DOCDIR):
 	mkdir -p $@
 
 gendoc: $(DOCDIR)
+	# added copying of images and renaming of TEMP.md
+	$(RUN)
 	cp $(SRC)/docs/*md $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
+	cp $(SRC)/docs/*.json $(DOCDIR) ; \
+	cp $(SRC)/docs/*.html $(DOCDIR) ; \
+	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
+
 
 testdoc: gendoc serve
 
