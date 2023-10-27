@@ -168,7 +168,7 @@ $(DOCDIR):
 
 gendoc: $(DOCDIR)
 	# added copying of images and renaming of TEMP.md
-	$(RUN)
+	$(RUN) generate_viz_json
 	cp $(SRC)/docs/*md $(DOCDIR) ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
 	cp $(SRC)/docs/*.json $(DOCDIR) ; \
