@@ -39,6 +39,8 @@
       
     
     
+      <link rel="stylesheet" href="../style.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -229,6 +231,156 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-resource-registry/" class="md-nav__link">
+        Infores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../association-examples-with-qualifiers/" class="md-nav__link">
+        Associations?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading-a-qualifier-based-statement/" class="md-nav__link">
+        Qualifiers?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curating-the-model/" class="md-nav__link">
+        Curating Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintaining-the-model/" class="md-nav__link">
+        Maintaining Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-the-modeling-language/" class="md-nav__link">
+        Using the LinkML Modeling Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-the-model/" class="md-nav__link">
+        Working with Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../categories.html" class="md-nav__link">
+        Visualize Categories
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predicates.html" class="md-nav__link">
+        Visualize Predicates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -256,8 +408,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    Inheritance
+  <a href="#mixin-usage" class="md-nav__link">
+    Mixin Usage
   </a>
   
 </li>
@@ -331,37 +483,49 @@
 
 
 <h1 id="slot-treats">Slot: treats</h1>
-<p><em>holds between a therapeutic procedure or chemical entity and a disease or phenotypic feature that it is used to treat</em></p>
+<p><em>Holds between a substance, procedure, or activity and a medical condition (disease or phenotypic feature),  and states that the substance, procedure, or activity is able to ameliorate, stabilize, or cure the condition  or delay, prevent, or reduce the risk of it manifesting in the first place. ‘Treats’ edges should be asserted  (knoweldge_level: assertion) only in cases where there is strong supporting  evidence - i.e. the intervention is approved or in phase 4 trials for the condition, or is a well-established  treatment in the medical community. In the absence of such evidence, weaker predicates should be used in  asserted edges (e.g. ‘in clinical trials for’ or ‘beneficial in models of’). ‘Treats’ edges based on weaker  or indirect forms of evidence can however be created as predictions (knowledge_level: prediction) and should  point to the more foundational asserted edges that support them.</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/treats">biolink:treats</a></p>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../related_to/">related_to</a><ul>
-<li><a href="../related_to_at_instance_level/">related_to_at_instance_level</a><ul>
-<li><a href="../affects/">affects</a><ul>
-<li><a href="../ameliorates/">ameliorates</a><ul>
-<li><strong>treats</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<!-- no inheritance hierarchy -->
+
+<h2 id="mixin-usage">Mixin Usage</h2>
+<table>
+<thead>
+<tr>
+<th>mixed into</th>
+<th>description</th>
+<th>range</th>
+<th>domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ameliorates_condition/">ameliorates_condition</a></td>
+<td>Holds between an entity and an existing medical condition (disease or phenoty...</td>
+<td>disease or phenotypic feature</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../preventative_for_condition/">preventative_for_condition</a></td>
+<td>Holds between a substance, procedure, or activity and a medical condition (di...</td>
+<td>disease or phenotypic feature</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
 <p>Range: <a href="../DiseaseOrPhenotypicFeature/">DiseaseOrPhenotypicFeature</a></p>
 </li>
 <li>
-<p>Multivalued: True</p>
+<p>Mixin: True</p>
 </li>
 </ul>
 <h2 id="aliases">Aliases</h2>
 <ul>
 <li>is substance that treats</li>
 <li>indicated for</li>
+<li>ameliorates or prevents condition</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="annotations">Annotations</h3>
@@ -391,17 +555,24 @@ annotations:
   canonical_predicate:
     tag: canonical_predicate
     value: true
-  opposite_of:
-    tag: opposite_of
-    value: contraindicated for
-description: holds between a therapeutic procedure or chemical entity and a disease
-  or phenotypic feature that it is used to treat
+description: 'Holds between a substance, procedure, or activity and a medical condition
+  (disease or phenotypic feature),  and states that the substance, procedure, or activity
+  is able to ameliorate, stabilize, or cure the condition  or delay, prevent, or reduce
+  the risk of it manifesting in the first place. ‘Treats’ edges should be asserted  (knoweldge_level:
+  assertion) only in cases where there is strong supporting  evidence - i.e. the intervention
+  is approved or in phase 4 trials for the condition, or is a well-established  treatment
+  in the medical community. In the absence of such evidence, weaker predicates should
+  be used in  asserted edges (e.g. ‘in clinical trials for’ or ‘beneficial in models
+  of’). ‘Treats’ edges based on weaker  or indirect forms of evidence can however
+  be created as predictions (knowledge_level: prediction) and should  point to the
+  more foundational asserted edges that support them.'
 in_subset:
 - translator_minimal
 from_schema: https://w3id.org/biolink/biolink-model
 aliases:
 - is substance that treats
 - indicated for
+- ameliorates or prevents condition
 exact_mappings:
 - DRUGBANK:treats
 - SEMMEDDB:TREATS
@@ -431,11 +602,14 @@ narrow_mappings:
 - REPODB:clinically_tested_withdrawn_phase_2_or_phase_3
 - REPODB:clinically_tested_withdrawn_phase_3
 - SNOMED:plays_role
+broad_mappings:
+- DRUGBANK:treats
+- SEMMEDDB:TREATS
+- WIKIDATA_PROPERTY:P2175
+- MONDO:disease_responds_to
 rank: 1000
-is_a: ameliorates
+mixin: true
 domain: chemical or drug or treatment
-multivalued: true
-inherited: true
 alias: treats
 range: disease or phenotypic feature
 

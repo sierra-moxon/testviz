@@ -39,6 +39,8 @@
       
     
     
+      <link rel="stylesheet" href="../style.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -224,6 +226,156 @@
     <li class="md-nav__item">
       <a href="../about/" class="md-nav__link">
         About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-resource-registry/" class="md-nav__link">
+        Infores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../association-examples-with-qualifiers/" class="md-nav__link">
+        Associations?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading-a-qualifier-based-statement/" class="md-nav__link">
+        Qualifiers?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curating-the-model/" class="md-nav__link">
+        Curating Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintaining-the-model/" class="md-nav__link">
+        Maintaining Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-the-modeling-language/" class="md-nav__link">
+        Using the LinkML Modeling Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-the-model/" class="md-nav__link">
+        Working with Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../categories.html" class="md-nav__link">
+        Visualize Categories
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predicates.html" class="md-nav__link">
+        Visualize Predicates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
       </a>
     </li>
   
@@ -503,15 +655,15 @@
 </tr>
 <tr>
 <td><a href="../affects/">affects</a></td>
-<td>describes an entity that has a direct affect on the state or quality of anoth...</td>
+<td>Describes an entity that has an effect on the state or quality of another exi...</td>
+</tr>
+<tr>
+<td><a href="../affects_likelihood_of/">affects_likelihood_of</a></td>
+<td>Holds between two entities where the presence or application of one alters th...</td>
 </tr>
 <tr>
 <td><a href="../affects_response_to/">affects_response_to</a></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="../affects_risk_for/">affects_risk_for</a></td>
-<td>holds between two entities where exposure to one entity alters the chance of ...</td>
 </tr>
 <tr>
 <td><a href="../anatomical_context_qualifier/">anatomical_context_qualifier</a></td>
@@ -520,6 +672,10 @@
 <tr>
 <td><a href="../aspect_qualifier/">aspect_qualifier</a></td>
 <td>Composes with the core concept to describe new concepts of a different ontolo...</td>
+</tr>
+<tr>
+<td><a href="../beneficial_in_models_for/">beneficial_in_models_for</a></td>
+<td>Holds between an  substance, procedure, or activity and a medical condition, ...</td>
 </tr>
 <tr>
 <td><a href="../biomarker_for/">biomarker_for</a></td>
@@ -572,6 +728,14 @@
 <tr>
 <td><a href="../condition_associated_with_gene/">condition_associated_with_gene</a></td>
 <td>holds between a gene and a disease or phenotypic feature that may be influenc...</td>
+</tr>
+<tr>
+<td><a href="../condition_exacerbated_by/">condition_exacerbated_by</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../condition_predisposed_by/">condition_predisposed_by</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../context_qualifier/">context_qualifier</a></td>
@@ -734,10 +898,6 @@
 <td>Holds between a cell c and a protein complex or protein p if and only if that...</td>
 </tr>
 <tr>
-<td><a href="../has_predisposing_factor/">has_predisposing_factor</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="../homologous_to/">homologous_to</a></td>
 <td>holds between two biological entities that have common evolutionary origin</td>
 </tr>
@@ -750,12 +910,20 @@
 <td>holds between two genes or gene products that are expressed in the same cell ...</td>
 </tr>
 <tr>
+<td><a href="../in_clinical_trials_for/">in_clinical_trials_for</a></td>
+<td>Holds between an intervention and a medical condition, and reports that a cli...</td>
+</tr>
+<tr>
 <td><a href="../in_complex_with/">in_complex_with</a></td>
 <td>holds between two genes or gene products that are part of (or code for produc...</td>
 </tr>
 <tr>
 <td><a href="../in_pathway_with/">in_pathway_with</a></td>
 <td>holds between two genes or gene products that are part of in the same biologi...</td>
+</tr>
+<tr>
+<td><a href="../in_preclinical_trials_for/">in_preclinical_trials_for</a></td>
+<td>Holds between an  substance, procedure, or activity and a medical condition, ...</td>
 </tr>
 <tr>
 <td><a href="../in_taxon/">in_taxon</a></td>
@@ -780,10 +948,6 @@
 <tr>
 <td><a href="../is_active_ingredient_of/">is_active_ingredient_of</a></td>
 <td>holds between a molecular entity and a drug, in which the former is a part of...</td>
-</tr>
-<tr>
-<td><a href="../is_exacerbated_by/">is_exacerbated_by</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_excipient_of/">is_excipient_of</a></td>
@@ -914,16 +1078,20 @@
 <td>holds between two processes, where one completes before the other begins</td>
 </tr>
 <tr>
-<td><a href="../predisposes/">predisposes</a></td>
-<td>holds between two entities where exposure to one entity increases the chance ...</td>
+<td><a href="../predisposes_to_condition/">predisposes_to_condition</a></td>
+<td>Holds between two entities where the presence or application of one increases...</td>
 </tr>
 <tr>
-<td><a href="../prevents/">prevents</a></td>
-<td>holds between an entity whose application or use reduces the likelihood of a ...</td>
+<td><a href="../preventative_for_condition/">preventative_for_condition</a></td>
+<td>Holds between a substance, procedure, or activity and a medical condition (di...</td>
 </tr>
 <tr>
 <td><a href="../produces/">produces</a></td>
 <td>holds between a material entity and a product that is generated through the i...</td>
+</tr>
+<tr>
+<td><a href="../promotes_condition/">promotes_condition</a></td>
+<td>Holds between a substance, procedure, or activity and a medical condition (di...</td>
 </tr>
 <tr>
 <td><a href="../qualifier/">qualifier</a></td>
@@ -1027,11 +1195,19 @@
 </tr>
 <tr>
 <td><a href="../treated_by/">treated_by</a></td>
-<td>holds between a disease or phenotypic feature and a therapeutic process or ch...</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../treats/">treats</a></td>
-<td>holds between a therapeutic procedure or chemical entity and a disease or phe...</td>
+<td>Holds between a substance, procedure, or activity and a medical condition (di...</td>
+</tr>
+<tr>
+<td><a href="../treats_or_taken_or_studied_to_treat/">treats_or_taken_or_studied_to_treat</a></td>
+<td>Holds between an substance, procedure, or activity and a medical condition (d...</td>
+</tr>
+<tr>
+<td><a href="../was_applied_to_treat/">was_applied_to_treat</a></td>
+<td>Holds between an  substance, procedure, or activity and a medical condition, ...</td>
 </tr>
 <tr>
 <td><a href="../xenologous_to/">xenologous_to</a></td>

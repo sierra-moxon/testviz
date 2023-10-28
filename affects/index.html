@@ -39,6 +39,8 @@
       
     
     
+      <link rel="stylesheet" href="../style.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -229,6 +231,156 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-resource-registry/" class="md-nav__link">
+        Infores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../association-examples-with-qualifiers/" class="md-nav__link">
+        Associations?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading-a-qualifier-based-statement/" class="md-nav__link">
+        Qualifiers?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curating-the-model/" class="md-nav__link">
+        Curating Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintaining-the-model/" class="md-nav__link">
+        Maintaining Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-the-modeling-language/" class="md-nav__link">
+        Using the LinkML Modeling Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-the-model/" class="md-nav__link">
+        Working with Biolink
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../categories.html" class="md-nav__link">
+        Visualize Categories
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predicates.html" class="md-nav__link">
+        Visualize Predicates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -324,7 +476,7 @@
 
 
 <h1 id="slot-affects">Slot: affects</h1>
-<p><em>describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.</em></p>
+<p><em>Describes an entity that has an effect on the state or quality of another existing entity.</em></p>
 <p>URI: <a href="https://w3id.org/biolink/vocab/affects">biolink:affects</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
@@ -334,8 +486,8 @@
 <li><a href="../affects_response_to/">affects_response_to</a></li>
 <li><a href="../regulates/">regulates</a> [ <a href="../interacts_with/">interacts_with</a>]</li>
 <li><a href="../disrupts/">disrupts</a></li>
-<li><a href="../ameliorates/">ameliorates</a></li>
-<li><a href="../exacerbates/">exacerbates</a></li>
+<li><a href="../ameliorates_condition/">ameliorates_condition</a> [ <a href="../treats/">treats</a> <a href="../treats_or_taken_or_studied_to_treat/">treats_or_taken_or_studied_to_treat</a>]</li>
+<li><a href="../exacerbates_condition/">exacerbates_condition</a> [ <a href="../promotes_condition/">promotes_condition</a>]</li>
 <li><a href="../has_adverse_event/">has_adverse_event</a></li>
 <li><a href="../has_side_effect/">has_side_effect</a></li>
 </ul>
@@ -382,10 +534,12 @@ annotations:
   canonical_predicate:
     tag: canonical_predicate
     value: true
-description: describes an entity that has a direct affect on the state or quality
-  of another existing entity. Use of the 'affects' predicate implies that the affected
-  entity already exists, unlike predicates such as 'affects risk for' and 'prevents,
-  where the outcome is something that may or may not come to be.
+description: Describes an entity that has an effect on the state or quality of another
+  existing entity.
+notes:
+- Use of the 'affects' predicate implies that the affected entity already exists,
+  unlike predicates such as  'affects likelihood of' and 'prevents' where the effect
+  concerns whether or when something may or  may not come into existence.
 in_subset:
 - translator_minimal
 from_schema: https://w3id.org/biolink/biolink-model
