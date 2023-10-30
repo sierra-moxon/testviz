@@ -116,7 +116,6 @@ def load_aspect_tree_data() -> List[dict]:
     for aspect_name in enum.permissible_values:
         parent = sv.permissible_value_parent(aspect_name, aspect_enum_field_name) if aspect_name else root_name
         direct_parent = parent[0] if parent else root_name
-        print(aspect_name, parent)
         parent_to_child_dict[direct_parent].add(aspect_name)
     root_node = {"name": root_name, "parent": None}
     aspect_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
