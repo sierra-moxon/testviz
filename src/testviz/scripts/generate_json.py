@@ -108,13 +108,16 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
 
 def load_aspect_tree_data() -> List[dict]:
     sv = get_schemaview()
-    aspect_enum_field_name = "gene_or_gene_product_or_chemical_entity_aspect_enum"
+    aspect_enum_field_name = "GeneOrGeneProductOrChemicalEntityAspectEnum"
     # Build aspects tree
     parent_to_child_dict = defaultdict(set)
     root_name = "[root]"
-    for aspect_name, info in sv.get_enum(aspect_enum_field_name)["permissible_values"].items():
-        parent = info.get("is_a", root_name) if info else root_name
-        parent_to_child_dict[parent].add(aspect_name)
+    enum = sv.get_enum(aspect_enum_field_name)
+    for aspect_name in enum.permissible_values:
+        parent = sv.permissible_value_parent(aspect_name, aspect_enum_field_name) if aspect_name else root_name
+        direct_parent = parent[0] if parent else root_name
+        print(aspect_name, parent)
+        parent_to_child_dict[direct_parent].add(aspect_name)
     root_node = {"name": root_name, "parent": None}
     aspect_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
 
