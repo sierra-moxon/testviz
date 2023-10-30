@@ -1,6 +1,6 @@
 from collections import defaultdict
 import json
-from typing import Any
+from typing import Any, List
 from linkml_runtime.utils.schemaview import SchemaView
 
 
@@ -106,6 +106,21 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
     return ([category_tree], parent_to_child_dict) if return_parent_to_child_dict else ([category_tree])
 
 
+def load_aspect_tree_data() -> List[dict]:
+    sv = get_schemaview()
+    aspect_enum_field_name = "gene_or_gene_product_or_chemical_entity_aspect_enum"
+    # Build aspects tree
+    parent_to_child_dict = defaultdict(set)
+    root_name = "[root]"
+    for aspect_name, info in sv.get_enum(aspect_enum_field_name)["permissible_values"].items():
+        parent = info.get("is_a", root_name) if info else root_name
+        parent_to_child_dict[parent].add(aspect_name)
+    root_node = {"name": root_name, "parent": None}
+    aspect_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
+
+    return [aspect_tree]
+
+
 def load_category_er_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
     """
     Load the category tree data from the model.
@@ -160,8 +175,13 @@ def generate_viz_json():
 
     cat_data = load_category_tree_data()
 
-    with open('src/docs//categories.json', 'w') as json_file:
+    with open('src/docs/categories.json', 'w') as json_file:
         json.dump(cat_data, json_file, indent=4)
+
+    aspect_data = load_aspect_tree_data()
+
+    with open('src/docs/aspects.json', 'w') as json_file:
+        json.dump(aspect_data, json_file, indent=4)
 
 
 if __name__ == "__main__":
