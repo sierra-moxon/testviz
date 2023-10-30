@@ -659,6 +659,10 @@
                                         "parent": "physically_interacts_with"
                                     }
                                 ]
+                            },
+                            {
+                                "name": "regulates",
+                                "parent": "interacts_with"
                             }
                         ]
                     },
@@ -908,7 +912,17 @@
                     },
                     {
                         "name": "promotes_condition",
-                        "parent": "related_to_at_instance_level"
+                        "parent": "related_to_at_instance_level",
+                        "children": [
+                            {
+                                "name": "exacerbates_condition",
+                                "parent": "promotes_condition"
+                            },
+                            {
+                                "name": "predisposes_to_condition",
+                                "parent": "promotes_condition"
+                            }
+                        ]
                     },
                     {
                         "name": "related_condition",
