@@ -66,6 +66,13 @@ def load_predicate_tree_data(return_parent_to_child_dict: bool = False) -> list[
             parent_to_child_dict[parent_name].add(slot_name)
             root_node = {"name": "related_to"}
             predicate_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
+        if slot.mixins:
+            for mixin in slot.mixins:
+                parent_name_english = mixin
+                parent_name = convert_predicate_to_trapi_format(parent_name_english)
+                parent_to_child_dict[parent_name].add(slot_name)
+                root_node = {"name": "related_to_at_instance_level"}
+                predicate_tree = get_tree_node_recursive(root_node, parent_to_child_dict)
     return ([predicate_tree], parent_to_child_dict) if return_parent_to_child_dict else ([predicate_tree])
 
 
