@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testviz" class="md-skip">
+        <a href="#biolink-model" class="md-skip">
           Skip to content
         </a>
       
@@ -233,9 +233,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         About
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datamodel" class="md-nav__link">
+    Datamodel
+  </a>
+  
+    <nav class="md-nav" aria-label="Datamodel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entities" class="md-nav__link">
+    Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associations" class="md-nav__link">
+    Associations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -251,6 +309,51 @@
     <li class="md-nav__item">
       <a href="../information-resource-registry/" class="md-nav__link">
         Infores
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../categories.html" class="md-nav__link">
+        Visualize Categories
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predicates.html" class="md-nav__link">
+        Visualize Predicates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aspects.html" class="md-nav__link">
+        Visualize Aspects
       </a>
     </li>
   
@@ -354,36 +457,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../categories.html" class="md-nav__link">
-        Visualize Categories
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../predicates.html" class="md-nav__link">
-        Visualize Predicates
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../faq/" class="md-nav__link">
         FAQ
       </a>
@@ -411,6 +484,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datamodel" class="md-nav__link">
+    Datamodel
+  </a>
+  
+    <nav class="md-nav" aria-label="Datamodel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entities" class="md-nav__link">
+    Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associations" class="md-nav__link">
+    Associations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    Slots
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -429,8 +544,83 @@
   </a>
 
 
-<h1 id="testviz">testviz</h1>
-<p>This is the project description.</p>
+<p><a href="https://travis-ci.org/biolink/biolink-model"><img alt="Build Status" src="https://travis-ci.org/biolink/biolink-model.svg?branch=master" /></a></p>
+<h1 id="biolink-model">Biolink Model</h1>
+<p>A high level datamodel of biological entities (<a href="docs/Gene">genes</a>, <a href="docs/Disease">diseases</a>,
+<a href="docs/Phenotype">phenotypes</a>, <a href="docs/Pathway">pathways</a>, <a href="docs/IndividualOrganism">individuals</a>, <a href="docs/ChemicalSubstance">substances</a>, etc) and their
+<a href="docs/Association">associations</a>.</p>
+<p>Biolink Model is designed as a way of standardizing types and relational structures in knowledge graphs (KGs), 
+where the KG may be either a property graph or RDF triple store.</p>
+<p>The schema is expressed as a <a href="https://github.com/biolink/biolink-model/blob/master/biolink-model.yaml">YAML</a>, which is translated to:</p>
+<ul>
+<li>Individual pages for each class in the model, e.g <a href="https://w3id.org/biolink/vocab/Gene">https://w3id.org/biolink/vocab/Gene</a></li>
+<li>An <a href="biolink-model.owl.ttl">OWL ontology</a>, also available on <a href="https://bioportal.bioontology.org/ontologies/BIOLINK">BioPortal</a></li>
+<li><a href="biolink/model.py">Python dataclasses</a>, also available on <a href="https://pypi.org/project/biolink-model/">PyPI</a></li>
+<li><a href="biolink-model.shex">ShEx</a> (RDF shape constraints)</li>
+<li><a href="biolink-model.graphql">graphql</a> </li>
+<li><a href="biolink-model.proto">protobuf</a> </li>
+<li><a href="json-schema/biolink-model.json">json-schema</a> </li>
+<li><a href="prefix-map/biolink-model-prefix-map.json">prefix-mapping</a>  (A simple mapping of prefix to IRI expansion)</li>
+<li><a href="java/BiolinkModel.java">java classes</a></li>
+</ul>
+<h2 id="datamodel">Datamodel</h2>
+<p>The schema assumes a property graph, where nodes represent individual entities, and edges represent relationship 
+between entities. Biolink Model provides a schema for representing both nodes and edges.</p>
+<p>The model itself can be divided into a few parts,
+* Entities (subjects and objects)
+* Predicates (relationships between core concepts)
+* Associations (statements including evidence and provenance)
+* Entity Slots (node properties)
+* Edge Slots (edge properties)</p>
+<p><img src="images/model_onion.png" width="50%"></p>
+<h3 id="entities">Entities</h3>
+<p>A entity corresponds to a database entity or a concept, represented as a node in a property graph.</p>
+<p>All typed entities are a sub-class of <a href="docs/NamedThing">NamedThing</a>.</p>
+<p>Each entity has,
+- its own unique stable URI
+- mappings to other ontologies (SIO, SO, etc.)
+- list of valid ID prefixes</p>
+<p>These entity types are higher level terms that can be used to categorize nodes in a KG. </p>
+<p>For more detailed typing, one can use specific terms from an ontology.</p>
+<h3 id="associations">Associations</h3>
+<p>A typed association between two entities, usually supported by evidence and provenance. 
+An association is represented as an edge/relationship between two nodes, in a property graph.</p>
+<p>All edges are a sub-class of <a href="docs/Association">Association</a>.</p>
+<p>An association connects a subject node and an object node via a <a href="docs/relation">relation</a> property.
+The nature of the association is defined based on the <a href="docs/relation">relation</a> property.</p>
+<p>Certain associations can have additional properties like <a href="docs/provided_by">provided_by</a>, 
+<a href="docs/has_evidence">has_evidence</a>, <a href="docs/publications">publications</a>.</p>
+<h3 id="slots">Slots</h3>
+<p><a href="docs#slots">Slots</a> are used to collectively refer to, both, node and edge properties.</p>
+<p>There are two types of slots defined in the model,
+- <a href="docs/node_property">node property</a> - all node properties are a sub-class of <a href="docs/node_property">node property</a>
+- <a href="docs/association_slot">association slot</a> - all edge properties are a sub-class of <a href="docs/association_slot">association slot</a></p>
+<p><a href="docs/">Browse the Biolink Model</a> to explore all defined entities, associations, and slots.</p>
+<h1 id="identifiers">Identifiers</h1>
+<p>See <a href="context.jsonld">Biolink Model JSON-LD context</a> for a list of CURIE prefix mappings.</p>
+<p>These include prefix expansions such as:</p>
+<pre><code>  "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+  "NCBIGene": "http://www.ncbi.nlm.nih.gov/gene/",
+  "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> We do not curate these in Biolink Model. Rather we take these from upstream sources, 
+via PrefixCommons. We specify a priority order of upstream sources in cases where conflicts may occur. 
+See the <a href="https://biolink.github.io/biolinkml/docs/default_curi_maps">default_curi_maps</a> tag at the 
+top of the <a href="biolink-model.yaml">biolink-model.yaml</a>. </p>
+</blockquote>
+<p>We also specify a small set of top-level prefix overrides via the <a href="https://biolink.github.io/biolinkml/docs/prefixes">prefixes</a> 
+tag at the top of the YAML.</p>
+<h1 id="biolink-model-representation">Biolink Model representation</h1>
+<p>Biolink Model aims at representing knowledge in a graph form regardless of the graph representation used.</p>
+<p>Following are some recommendations when attempting to use Biolink Model with each style of representation. </p>
+<ul>
+<li><strong>Neo4J</strong>: see <a href="about/mapping-neo4j">Mapping to Neo4j</a></li>
+<li><strong>RDF</strong>: see <a href="about/mapping-rdf">Mapping to RDF</a></li>
+</ul>
+<h1 id="citing-biolink-model">Citing Biolink Model</h1>
+<p>Unni DR, Moxon SAT, Bada M, Brush M, Bruskiewich R, Caufield JH, Clemons PA, Dancik V, Dumontier M, Fecho K, Glusman G, Hadlock JJ, Harris NL, Joshi A, Putman T, Qin G, Ramsey SA, Shefchek KA, Solbrig H, Soman K, Thessen AE, Haendel MA, Bizon C, Mungall CJ, The Biomedical Data Translator Consortium (2022). 
+Biolink Model: A universal schema for knowledge graphs in clinical, biomedical, and translational science. Clin Transl Sci. Wiley; 2022 Jun 6; <a href="https://onlinelibrary.wiley.com/doi/10.1111/cts.13302">https://onlinelibrary.wiley.com/doi/10.1111/cts.13302</a></p>
 
 
 
