@@ -12,8 +12,8 @@ plugins:
   - mermaid2
 nav:
   # - Home: home.md
-  - Index: index.md
   - About: about.md
+  - Index: index.md
   - Infores: information-resource-registry.md
   - Visualize Categories: categories.html
   - Visualize Predicates: predicates.html

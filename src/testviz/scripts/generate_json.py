@@ -4,22 +4,15 @@ from typing import Any, List
 from linkml_runtime.utils.schemaview import SchemaView
 
 
-def get_schemaview() -> Any:
-    """
-    Get the linkml model yaml file from a specific git version in the local repository
-    and parse it as YAML.
 
-    """
-    # Relative path to the file
-    file_path = 'src/testviz/schema/testviz.yaml'
+file_path = 'src/testviz/schema/testviz.yaml'
 
-    # Read the file content
-    with open(file_path, 'r') as file:
-        file_content_str = file.read()
+# Read the file content
+with open(file_path, 'r') as file:
+    file_content_str = file.read()
 
-    # Parse the YAML content
-    sv = SchemaView(file_content_str)
-    return sv
+# Parse the YAML content
+sv = SchemaView(file_content_str)
 
 
 def get_tree_node_recursive(root_node: dict, parent_to_child_map: dict) -> dict:
@@ -52,7 +45,6 @@ def load_predicate_tree_data(return_parent_to_child_dict: bool = False) -> list[
 
     :return: The predicate tree data.
     """
-    sv = get_schemaview()
     parent_to_child_dict = defaultdict(set)
     predicate_tree = []
     for slot_name in sv.all_slots(imports=True):
@@ -85,7 +77,6 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
     :return: The category tree data.
     :rtype: tuple
     """
-    sv = get_schemaview()
     parent_to_child_dict = defaultdict(set)
     category_tree = {}
     for class_name in sv.all_classes(imports=True):
@@ -107,7 +98,6 @@ def load_category_tree_data(return_parent_to_child_dict: bool = False) -> tuple:
 
 
 def load_aspect_tree_data() -> List[dict]:
-    sv = get_schemaview()
     aspect_enum_field_name = "GeneOrGeneProductOrChemicalEntityAspectEnum"
     # Build aspects tree
     parent_to_child_dict = defaultdict(set)
