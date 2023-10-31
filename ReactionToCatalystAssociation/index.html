@@ -655,7 +655,6 @@ attributes:
     description: the relationship between the relative quantities of substances taking
       part in a reaction or forming a compound, typically a ratio of whole integers.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     alias: stoichiometry
@@ -670,7 +669,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     narrow_mappings:
     - NCIT:C42677
-    rank: 1000
     is_a: association slot
     domain: association
     alias: reaction_direction
@@ -682,7 +680,6 @@ attributes:
     name: reaction side
     description: 'the side of a reaction being modeled (ie: left or right)'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     alias: reaction_side
@@ -694,7 +691,6 @@ attributes:
     name: subject
     description: the chemical entity or entity that is an interactor
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     slot_uri: rdf:subject
@@ -724,7 +720,6 @@ attributes:
     exact_mappings:
     - owl:annotatedProperty
     - OBAN:association_has_predicate
-    rank: 1000
     is_a: association slot
     domain: association
     slot_uri: rdf:predicate
@@ -739,7 +734,6 @@ attributes:
     name: object
     description: the chemical element that is the target of the statement
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     slot_uri: rdf:object
@@ -753,7 +747,6 @@ attributes:
     name: negated
     description: if set to true, then the association is negated i.e. is not true
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     alias: negated
@@ -771,7 +764,6 @@ attributes:
       meaning of that association
     deprecated: 'True'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -793,7 +785,6 @@ attributes:
     aliases:
     - supporting publications
     - supporting documents
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -808,7 +799,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - RO:0002558
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -827,7 +817,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     close_mappings:
     - pav:providedBy
-    rank: 1000
     is_a: association slot
     domain: association
     alias: knowledge_source
@@ -852,7 +841,6 @@ attributes:
       for this edge is "infores:clinical-trials-gov".  "infores:chembl" and "infores:molecular_data_provider"
       are listed in the "aggregator knowledge source" property.'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: knowledge source
     domain: association
     multivalued: false
@@ -879,7 +867,6 @@ attributes:
       KP- generated knowledge is "infores:unc-cdw-health."  The "aggregator knowledge
       source" for this data is "infores:aragorn-ara"'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: knowledge source
     domain: association
     multivalued: true
@@ -894,7 +881,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     aliases:
     - duration
-    rank: 1000
     alias: timepoint
     owner: reaction to catalyst association
     domain_of:
@@ -908,7 +894,6 @@ attributes:
       an external knowledge source uses before transformation to match the biolink-model
       specification.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     alias: original_subject
@@ -928,7 +913,6 @@ attributes:
     aliases:
     - original relation
     - relation
-    rank: 1000
     is_a: association slot
     domain: association
     alias: original_predicate
@@ -942,7 +926,6 @@ attributes:
       an external knowledge source uses before transformation to match the biolink-model
       specification.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     alias: original_object
@@ -964,7 +947,6 @@ attributes:
       description: The subject category of the association between the gene 'BRCA1'
         and the disease 'breast cancer' is 'biolink:Gene'.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: false
@@ -987,7 +969,6 @@ attributes:
       description: The object category of the association between the gene 'BRCA1'
         and the disease 'breast cancer' is 'biolink:Disease'.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: false
@@ -1005,7 +986,6 @@ attributes:
     description: Used to hold the subject closure of an association. This is a denormalized  field
       used primarily in the SQL serialization of a knowledge graph via KGX.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1030,7 +1010,6 @@ attributes:
         of" and "part of"  relations are used to construct the closure, but other
         relations may be used as well.'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1056,7 +1035,6 @@ attributes:
         the "subclass of" and "part of"  relations are used to construct the closure,
         but other relations may be used as well.'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1082,7 +1060,6 @@ attributes:
         the "subclass of" and "part of"  relations are used to construct the closure,
         but other relations may be used as well.'
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1106,7 +1083,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     aliases:
     - subject prefix
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: false
@@ -1130,7 +1106,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     aliases:
     - object prefix
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: false
@@ -1154,7 +1129,6 @@ attributes:
         and the disease 'breast cancer' is the set of all labels that are ancestors
         of 'BRCA1' in the biolink model.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1178,7 +1152,6 @@ attributes:
         and the disease 'breast cancer' is the set of all labels that are ancestors
         of 'breast cancer' in the biolink model.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: association slot
     domain: association
     multivalued: true
@@ -1194,7 +1167,6 @@ attributes:
     in_subset:
     - translator_minimal
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     multivalued: true
     alias: retrieval_source_ids
     owner: reaction to catalyst association
@@ -1212,7 +1184,6 @@ attributes:
     - AGRKB:primaryId
     - gff3:ID
     - gpi:DB_Object_ID
-    rank: 1000
     domain: entity
     identifier: true
     alias: id
@@ -1232,7 +1203,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P854
-    rank: 1000
     alias: iri
     owner: reaction to catalyst association
     domain_of:
@@ -1254,7 +1224,6 @@ attributes:
       \ which is more specific than anything in biolink. Here we would have categories\
       \ {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}"
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: type
     domain: entity
     multivalued: true
@@ -1270,7 +1239,6 @@ attributes:
     name: type
     description: rdf:type of biolink:Association should be fixed at rdf:Statement
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     slot_uri: rdf:type
     multivalued: true
@@ -1296,7 +1264,6 @@ attributes:
     narrow_mappings:
     - dct:title
     - WIKIDATA_PROPERTY:P1476
-    rank: 1000
     domain: entity
     slot_uri: rdfs:label
     alias: name
@@ -1319,7 +1286,6 @@ attributes:
     - skos:definitions
     narrow_mappings:
     - gff3:Description
-    rank: 1000
     slot_uri: dct:description
     alias: description
     owner: reaction to catalyst association
@@ -1411,7 +1377,6 @@ attributes:
     - UMLS:has_supported_concept_property
     - UMLS:has_supported_concept_relationship
     - UMLS:may_be_qualified_by
-    rank: 1000
     domain: entity
     multivalued: true
     alias: has_attribute

@@ -527,7 +527,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     broad_mappings:
     - dct:source
-    rank: 1000
     is_a: node property
     domain: dataset version
     alias: has_dataset
@@ -540,7 +539,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     broad_mappings:
     - dct:issued
-    rank: 1000
     is_a: node property
     domain: dataset version
     alias: ingest_date
@@ -551,7 +549,6 @@ attributes:
   has distribution:
     name: has distribution
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: dataset version
     slot_uri: dct:distribution
@@ -567,7 +564,6 @@ attributes:
     - dct:license
     narrow_mappings:
     - WIKIDATA_PROPERTY:P275
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: license
@@ -580,7 +576,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - dct:rights
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: rights
@@ -594,7 +589,6 @@ attributes:
     exact_mappings:
     - dct:format
     - WIKIDATA_PROPERTY:P2701
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: format
@@ -612,7 +606,6 @@ attributes:
     exact_mappings:
     - dct:createdOn
     - WIKIDATA_PROPERTY:P577
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: creation_date
@@ -627,7 +620,6 @@ attributes:
       to represent how a particular node made its way into a knowledge provider or
       graph.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -655,7 +647,6 @@ attributes:
     narrow_mappings:
     - gff3:Dbxref
     - gpi:DB_Xrefs
-    rank: 1000
     domain: named thing
     multivalued: true
     alias: xref
@@ -671,7 +662,6 @@ attributes:
     name: full name
     description: a long-form human readable name for a thing
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: full_name
@@ -695,7 +685,6 @@ attributes:
     - HANCESTRO:0330
     - IAO:0000136
     - RXNORM:has_tradename
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -716,7 +705,6 @@ attributes:
     - AGRKB:primaryId
     - gff3:ID
     - gpi:DB_Object_ID
-    rank: 1000
     domain: entity
     identifier: true
     alias: id
@@ -736,7 +724,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P854
-    rank: 1000
     alias: iri
     owner: dataset version
     domain_of:
@@ -758,7 +745,6 @@ attributes:
       \ which is more specific than anything in biolink. Here we would have categories\
       \ {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}"
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: type
     domain: entity
     multivalued: true
@@ -778,7 +764,6 @@ attributes:
     - AGRKB:soTermId
     - gff3:type
     - gpi:DB_Object_Type
-    rank: 1000
     domain: entity
     slot_uri: rdf:type
     multivalued: true
@@ -804,7 +789,6 @@ attributes:
     narrow_mappings:
     - dct:title
     - WIKIDATA_PROPERTY:P1476
-    rank: 1000
     domain: entity
     slot_uri: rdfs:label
     alias: name
@@ -827,7 +811,6 @@ attributes:
     - skos:definitions
     narrow_mappings:
     - gff3:Description
-    rank: 1000
     slot_uri: dct:description
     alias: description
     owner: dataset version
@@ -919,7 +902,6 @@ attributes:
     - UMLS:has_supported_concept_property
     - UMLS:has_supported_concept_relationship
     - UMLS:may_be_qualified_by
-    rank: 1000
     domain: entity
     multivalued: true
     alias: has_attribute

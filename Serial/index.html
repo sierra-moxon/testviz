@@ -403,7 +403,7 @@
 <td><a href="../xref/">xref</a></td>
 <td>0..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>A database cross reference or alternative identifier for a NamedThing or edge...</td>
-<td><a href="../Publication/">Publication</a>, <a href="../NamedThing/">NamedThing</a></td>
+<td><a href="../NamedThing/">NamedThing</a>, <a href="../Publication/">Publication</a></td>
 </tr>
 <tr>
 <td><a href="../license/">license</a></td>
@@ -607,7 +607,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P1160
-    rank: 1000
     is_a: node property
     domain: publication
     alias: iso_abbreviation
@@ -623,7 +622,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P478
-    rank: 1000
     is_a: node property
     domain: publication
     alias: volume
@@ -640,7 +638,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P433
-    rank: 1000
     is_a: node property
     domain: publication
     alias: issue
@@ -660,7 +657,6 @@ attributes:
       details about an author and possibly, some qualifiers which clarify the specific
       status of a given author in the publication.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: publication
     multivalued: true
@@ -675,7 +671,6 @@ attributes:
       and end page of the publication within its parent publication context. For books,
       this may be set to the total number of pages of the book.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: publication
     multivalued: true
@@ -693,7 +688,6 @@ attributes:
     exact_mappings:
     - dct:abstract
     - WIKIDATA:Q333291
-    rank: 1000
     is_a: node property
     domain: publication
     alias: summary
@@ -705,7 +699,6 @@ attributes:
     name: keywords
     description: keywords tagging a publication
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: publication
     multivalued: true
@@ -720,7 +713,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - dcid:MeSHTerm
-    rank: 1000
     is_a: node property
     values_from:
     - MESH
@@ -750,7 +742,6 @@ attributes:
     narrow_mappings:
     - gff3:Dbxref
     - gpi:DB_Xrefs
-    rank: 1000
     domain: named thing
     multivalued: true
     alias: xref
@@ -769,7 +760,6 @@ attributes:
     - dct:license
     narrow_mappings:
     - WIKIDATA_PROPERTY:P275
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: license
@@ -782,7 +772,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - dct:rights
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: rights
@@ -796,7 +785,6 @@ attributes:
     exact_mappings:
     - dct:format
     - WIKIDATA_PROPERTY:P2701
-    rank: 1000
     is_a: node property
     domain: information content entity
     alias: format
@@ -814,7 +802,6 @@ attributes:
     exact_mappings:
     - dct:createdOn
     - WIKIDATA_PROPERTY:P577
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: creation_date
@@ -829,7 +816,6 @@ attributes:
       to represent how a particular node made its way into a knowledge provider or
       graph.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -842,7 +828,6 @@ attributes:
     name: full name
     description: a long-form human readable name for a thing
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: full_name
@@ -866,7 +851,6 @@ attributes:
     - HANCESTRO:0330
     - IAO:0000136
     - RXNORM:has_tradename
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -881,7 +865,6 @@ attributes:
     description: Serials (journals) should have industry-standard identifier such
       as from ISSN.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     identifier: true
     alias: id
@@ -901,7 +884,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P854
-    rank: 1000
     alias: iri
     owner: serial
     domain_of:
@@ -923,7 +905,6 @@ attributes:
       \ which is more specific than anything in biolink. Here we would have categories\
       \ {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}"
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: type
     domain: entity
     multivalued: true
@@ -941,7 +922,6 @@ attributes:
     description: Should generally be set to an ontology class defined term for 'serial'
       or 'journal'.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     slot_uri: rdf:type
     multivalued: true
@@ -956,7 +936,6 @@ attributes:
       property (inherited from NamedThing). The field name 'title' is now also tagged
       as an acceptable alias for the node property 'name' (just in case).
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     slot_uri: rdfs:label
     alias: name
@@ -979,7 +958,6 @@ attributes:
     - skos:definitions
     narrow_mappings:
     - gff3:Description
-    rank: 1000
     slot_uri: dct:description
     alias: description
     owner: serial
@@ -1071,7 +1049,6 @@ attributes:
     - UMLS:has_supported_concept_property
     - UMLS:has_supported_concept_relationship
     - UMLS:may_be_qualified_by
-    rank: 1000
     domain: entity
     multivalued: true
     alias: has_attribute

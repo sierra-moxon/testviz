@@ -756,7 +756,6 @@ attributes:
     name: has gene
     description: Each allele can be associated with any number of genes
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: has gene or gene product
     domain: named thing
     multivalued: true
@@ -769,7 +768,6 @@ attributes:
     name: has biological sequence
     description: The state of the sequence w.r.t a reference sequence
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: has_biological_sequence
@@ -788,7 +786,6 @@ attributes:
     - value: CLINVAR:17681
       description: NM_007294.3(BRCA1):c.2521C&gt;T (p.Arg841Trp)
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     identifier: true
     alias: id
@@ -820,7 +817,6 @@ attributes:
     - WIKIDATA_PROPERTY:P703
     narrow_mappings:
     - RO:0002160
-    rank: 1000
     is_a: related to at instance level
     domain: thing with taxon
     multivalued: true
@@ -842,7 +838,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P225
-    rank: 1000
     is_a: node property
     domain: thing with taxon
     slot_uri: rdfs:label
@@ -858,7 +853,6 @@ attributes:
       to represent how a particular node made its way into a knowledge provider or
       graph.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -886,7 +880,6 @@ attributes:
     narrow_mappings:
     - gff3:Dbxref
     - gpi:DB_Xrefs
-    rank: 1000
     domain: named thing
     multivalued: true
     alias: xref
@@ -902,7 +895,6 @@ attributes:
     name: full name
     description: a long-form human readable name for a thing
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: full_name
@@ -926,7 +918,6 @@ attributes:
     - HANCESTRO:0330
     - IAO:0000136
     - RXNORM:has_tradename
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -946,7 +937,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P854
-    rank: 1000
     alias: iri
     owner: sequence variant
     domain_of:
@@ -968,7 +958,6 @@ attributes:
       \ which is more specific than anything in biolink. Here we would have categories\
       \ {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}"
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: type
     domain: entity
     multivalued: true
@@ -988,7 +977,6 @@ attributes:
     - AGRKB:soTermId
     - gff3:type
     - gpi:DB_Object_Type
-    rank: 1000
     domain: entity
     slot_uri: rdf:type
     multivalued: true
@@ -1014,7 +1002,6 @@ attributes:
     narrow_mappings:
     - dct:title
     - WIKIDATA_PROPERTY:P1476
-    rank: 1000
     domain: entity
     slot_uri: rdfs:label
     alias: name
@@ -1037,7 +1024,6 @@ attributes:
     - skos:definitions
     narrow_mappings:
     - gff3:Description
-    rank: 1000
     slot_uri: dct:description
     alias: description
     owner: sequence variant
@@ -1129,7 +1115,6 @@ attributes:
     - UMLS:has_supported_concept_property
     - UMLS:has_supported_concept_relationship
     - UMLS:may_be_qualified_by
-    rank: 1000
     domain: entity
     multivalued: true
     alias: has_attribute

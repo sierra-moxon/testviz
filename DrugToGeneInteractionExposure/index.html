@@ -353,7 +353,7 @@
 <td><a href="../has_quantitative_value/">has_quantitative_value</a></td>
 <td>0..* <br/> <a href="../QuantityValue/">QuantityValue</a></td>
 <td>connects an attribute to a value</td>
-<td><a href="../Attribute/">Attribute</a>, <a href="../ChemicalExposure/">ChemicalExposure</a></td>
+<td><a href="../ChemicalExposure/">ChemicalExposure</a>, <a href="../Attribute/">Attribute</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -489,7 +489,6 @@ attributes:
     name: has gene or gene product
     description: connects an entity with one or more gene or gene products
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -504,7 +503,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     aliases:
     - duration
-    rank: 1000
     alias: timepoint
     owner: drug to gene interaction exposure
     domain_of:
@@ -524,7 +522,6 @@ attributes:
     - SNOMED:has_concentration_strength_numerator_value
     - SNOMED:has_presentation_strength_denominator_value
     - SNOMED:has_presentation_strength_numerator_value
-    rank: 1000
     domain: attribute
     multivalued: true
     alias: has_quantitative_value
@@ -540,7 +537,6 @@ attributes:
       annotation or it can default to the name associated with the 'has attribute
       type' slot ontology term.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: entity
     slot_uri: rdfs:label
     alias: name
@@ -559,7 +555,6 @@ attributes:
     narrow_mappings:
     - LOINC:has_modality_type
     - LOINC:has_view_type
-    rank: 1000
     domain: attribute
     multivalued: false
     alias: has_attribute_type
@@ -574,7 +569,6 @@ attributes:
     in_subset:
     - samples
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     domain: attribute
     multivalued: false
     alias: has_qualitative_value
@@ -592,7 +586,6 @@ attributes:
     from_schema: https://w3id.org/biolink/biolink-model
     exact_mappings:
     - WIKIDATA_PROPERTY:P854
-    rank: 1000
     alias: iri
     owner: drug to gene interaction exposure
     domain_of:
@@ -610,7 +603,6 @@ attributes:
     - AGRKB:primaryId
     - gff3:ID
     - gpi:DB_Object_ID
-    rank: 1000
     domain: entity
     identifier: true
     alias: id
@@ -627,7 +619,6 @@ attributes:
       to represent how a particular node made its way into a knowledge provider or
       graph.
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -655,7 +646,6 @@ attributes:
     narrow_mappings:
     - gff3:Dbxref
     - gpi:DB_Xrefs
-    rank: 1000
     domain: named thing
     multivalued: true
     alias: xref
@@ -671,7 +661,6 @@ attributes:
     name: full name
     description: a long-form human readable name for a thing
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: node property
     domain: named thing
     alias: full_name
@@ -695,7 +684,6 @@ attributes:
     - HANCESTRO:0330
     - IAO:0000136
     - RXNORM:has_tradename
-    rank: 1000
     is_a: node property
     domain: named thing
     multivalued: true
@@ -720,7 +708,6 @@ attributes:
       \ which is more specific than anything in biolink. Here we would have categories\
       \ {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}"
     from_schema: https://w3id.org/biolink/biolink-model
-    rank: 1000
     is_a: type
     domain: entity
     multivalued: true
@@ -740,7 +727,6 @@ attributes:
     - AGRKB:soTermId
     - gff3:type
     - gpi:DB_Object_Type
-    rank: 1000
     domain: entity
     slot_uri: rdf:type
     multivalued: true
@@ -762,7 +748,6 @@ attributes:
     - skos:definitions
     narrow_mappings:
     - gff3:Description
-    rank: 1000
     slot_uri: dct:description
     alias: description
     owner: drug to gene interaction exposure
@@ -854,7 +839,6 @@ attributes:
     - UMLS:has_supported_concept_property
     - UMLS:has_supported_concept_relationship
     - UMLS:may_be_qualified_by
-    rank: 1000
     domain: entity
     multivalued: true
     alias: has_attribute
