@@ -176,8 +176,6 @@ gendoc: $(DOCDIR)
 	cp $(SRC)/docs/*.html $(DOCDIR) ; \
 	# this supports the display of our d3 visualizations
 	cp $(SRC)/docs/*.css $(DOCDIR) ; \
-	# this is necessary for the jinja template to incorporate the about.md file into the homepage of the index.md file
-	cp $(SRC)/docs/about.md $(SRC)/$(TEMPLATEDIR); \
 	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
 
 
