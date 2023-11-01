@@ -14,9 +14,6 @@ This is the one source of truth for the model.
 
 This section explores how to go about adding new classes and slots to the model.
 
-![Modeling Components](images/model_onion.png)
-
-
 ### Adding an Entity class
 
 An entity class represents entities like Genes, Diseases, Chemical Substances, etc.
@@ -185,7 +182,10 @@ kind of modeling allows us to increase connectivity in graphs by using a core bi
 more specific and nuanced about the meaning of the association by qualifying the concept (gene) with a more specific
 form of "mutant form" of that concept. 
 
-For more information on qualifiers, please refer to [Understanding the Model](understanding-the-model.md)
+We find the diagram below to be a helpful visualization of an association class and its components.
+![Modeling Components](images/model_onion.png)
+
+For more information on qualifiers, please refer to [Reading a Qualifier Based Statement](reading-a-qualifier-based-statement.md)
 
 For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
 
