@@ -76,24 +76,26 @@ There are three ways of attaching semantics to a node:
 
 Each individual interaction between genes can be treated as an edge with,
 - `interacts with` as its `predicate`
-- `RO:0002436` as its `relation`
 - `gene to gene association` as its `category`
 
-And we have additional edges that go from gene to protein to signify that a gene encodes for a protein via the Biolink predicate slot `has gene product`.
+And we have additional edges that go from gene to protein to signify that a gene encodes for a protein via the Biolink 
+predicate slot `has gene product`.
 
 In [KGX serialization format](https://github.com/biolink/kgx/blob/master/data-preparation.md) the edges can be represented as follows:
 ```tsv
-id  subject predicate   object  relation    provided_by category
-985eb9e6-e0bf-4cef-be0a-3d8ea12d228b	NCBIGene:381	biolink:interacts_with	NCBIGene:805	RO:0002436	STRING	biolink:GeneToGeneAssociation
-5550b653-69ff-48cc-a1ef-638ecdc50ea3	NCBIGene:381	biolink:interacts_with	NCBIGene:23229	RO:0002436	STRING	biolink:GeneToGeneAssociation
-8bff8da0-6da2-4154-b507-a8e9f75c55f8	NCBIGene:381	biolink:interacts_with	NCBIGene:2081	RO:0002436	STRING	biolink:GeneToGeneAssociation
-36e2edf0-d490-4417-9407-7070f4320083	NCBIGene:381	biolink:has_gene_product	UniProtKB:P84085	RO:0002205	STRING	
-0dd21d53-4985-467c-8e6d-0a79c0410016	NCBIGene:805	biolink:has_gene_product	UniProtKB:P0DP24	RO:0002205	STRING	
-fe5f9383-c5f6-4eba-9dc4-185e6d331459	NCBIGene:23229	biolink:has_gene_product	UniProtKB:O43307	RO:0002205	STRING	
-8c60c2b2-ff6c-45d5-a18f-e927ab1dec35	NCBIGene:2081	biolink:has_gene_product	UniProtKB:O75460	RO:0002205	STRING	
+id  subject predicate   object    provided_by category
+985eb9e6-e0bf-4cef-be0a-3d8ea12d228b	NCBIGene:381	biolink:interacts_with	NCBIGene:805	STRING	biolink:GeneToGeneAssociation
+5550b653-69ff-48cc-a1ef-638ecdc50ea3	NCBIGene:381	biolink:interacts_with	NCBIGene:23229	STRING	biolink:GeneToGeneAssociation
+8bff8da0-6da2-4154-b507-a8e9f75c55f8	NCBIGene:381	biolink:interacts_with	NCBIGene:2081	STRING	biolink:GeneToGeneAssociation
+36e2edf0-d490-4417-9407-7070f4320083	NCBIGene:381	biolink:has_gene_product	UniProtKB:P84085	STRING	
+0dd21d53-4985-467c-8e6d-0a79c0410016	NCBIGene:805	biolink:has_gene_product	UniProtKB:P0DP24	STRING	
+fe5f9383-c5f6-4eba-9dc4-185e6d331459	NCBIGene:23229	biolink:has_gene_product	UniProtKB:O43307	STRING	
+8c60c2b2-ff6c-45d5-a18f-e927ab1dec35	NCBIGene:2081	biolink:has_gene_product	UniProtKB:O75460	STRING	
 ```
 
-> **Note:** While association class is defined as `gene to gene association` and predicate slots are defined as `interacts with` and `has gene product` in the model, when using them the reference to the class should always be in their CURIE form which includes the `biolink` prefix.
+> **Note:** While association class is defined as `gene to gene association` and predicate slots are defined 
+as `interacts with` and `has gene product` in the model, when using them the reference to the class should always 
+be in their CURIE form which includes the `biolink` prefix.
 
 
 ### Edge semantics
@@ -101,8 +103,6 @@ fe5f9383-c5f6-4eba-9dc4-185e6d331459	NCBIGene:23229	biolink:has_gene_product	Uni
 There are 3 ways of attaching the semantics to an edge:
 - using the Biolink association slot `predicate`
   - must have a value from the [`related to` hierarchy](https://biolink.github.io/biolink-model/docs/related_to)
-- using the Biolink association slot `relation`
-  - can have a value from any external ontology, controlled vocabulary, thesauri, or taxonomy
 - using the Biolink slot `category`
   - must have a value from the [`association` hierarchy](https://biolink.github.io/biolink-model/docs/Association)
 - using Biolink slot `type`
@@ -132,20 +132,22 @@ NCBIGene:2081	ERN1	biolink:Gene	ENSEMBL:ENSG00000178607	STRING	NCBITaxon:9606	SO
 
 `edges.tsv`:
 ```tsv
-id	subject:START_ID	predicate:TYPE	object:END_ID	relation	provided_by:string[]	category:string[]
-985eb9e6-e0bf-4cef-be0a-3d8ea12d228b	NCBIGene:381	biolink:interacts_with	NCBIGene:805	RO:0002436	STRING	biolink:GeneToGeneAssociation
-5550b653-69ff-48cc-a1ef-638ecdc50ea3	NCBIGene:381	biolink:interacts_with	NCBIGene:23229	RO:0002436	STRING	biolink:GeneToGeneAssociation
-8bff8da0-6da2-4154-b507-a8e9f75c55f8	NCBIGene:381	biolink:interacts_with	NCBIGene:2081	RO:0002436	STRING	biolink:GeneToGeneAssociation
-36e2edf0-d490-4417-9407-7070f4320083	NCBIGene:381	biolink:has_gene_product	UniProtKB:P84085	RO:0002205	STRING	
-0dd21d53-4985-467c-8e6d-0a79c0410016	NCBIGene:805	biolink:has_gene_product	UniProtKB:P0DP24	RO:0002205	STRING	
-fe5f9383-c5f6-4eba-9dc4-185e6d331459	NCBIGene:23229	biolink:has_gene_product	UniProtKB:O43307	RO:0002205	STRING	
-8c60c2b2-ff6c-45d5-a18f-e927ab1dec35	NCBIGene:2081	biolink:has_gene_product	UniProtKB:O75460	RO:0002205	STRING	
+id	subject:START_ID	predicate:TYPE	object:END_ID	provided_by:string[]	category:string[]
+985eb9e6-e0bf-4cef-be0a-3d8ea12d228b	NCBIGene:381	biolink:interacts_with	NCBIGene:805	STRING	biolink:GeneToGeneAssociation
+5550b653-69ff-48cc-a1ef-638ecdc50ea3	NCBIGene:381	biolink:interacts_with	NCBIGene:23229	STRING	biolink:GeneToGeneAssociation
+8bff8da0-6da2-4154-b507-a8e9f75c55f8	NCBIGene:381	biolink:interacts_with	NCBIGene:2081	STRING	biolink:GeneToGeneAssociation
+36e2edf0-d490-4417-9407-7070f4320083	NCBIGene:381	biolink:has_gene_product	UniProtKB:P84085	STRING	
+0dd21d53-4985-467c-8e6d-0a79c0410016	NCBIGene:805	biolink:has_gene_product	UniProtKB:P0DP24	STRING	
+fe5f9383-c5f6-4eba-9dc4-185e6d331459	NCBIGene:23229	biolink:has_gene_product	UniProtKB:O43307	STRING	
+8c60c2b2-ff6c-45d5-a18f-e927ab1dec35	NCBIGene:2081	biolink:has_gene_product	UniProtKB:O75460	STRING	
 ```
 
 
 ## Biolink Model representation in RDF
 
-Since RDF graphs do not allow for properties on edges, the most practical alternative is to use reification where an edge is transformed into a node of type `biolink:Association` (or its descendants) and any edge properties then becomes properties of this reified node.
+Since RDF graphs do not allow for properties on edges, the most practical alternative is to use reification where an 
+edge is transformed into a node of type `biolink:Association` (or its descendants) and any edge properties then becomes
+properties of this reified node.
 
 Using reification, the previous example can be easily converted to RDF using [KGX](https://github.com/biolink/kgx),
 
@@ -224,7 +226,6 @@ Using reification, the previous example can be easily converted to RDF using [KG
   rdf:subject <http://www.ncbi.nlm.nih.gov/gene/381> ;
   rdf:predicate biolink:interacts_with ;
   rdf:object <http://www.ncbi.nlm.nih.gov/gene/805> ;
-  biolink:relation <http://purl.obolibrary.org/obo/RO_0002436> ;
   biolink:provided_by "STRING" ;
   biolink:category biolink:GeneToGeneAssociation .
 
@@ -232,7 +233,6 @@ Using reification, the previous example can be easily converted to RDF using [KG
   rdf:subject <http://www.ncbi.nlm.nih.gov/gene/381> ;
   rdf:predicate biolink:interacts_with ;
   rdf:object <http://www.ncbi.nlm.nih.gov/gene/23229> ;
-  biolink:relation <http://purl.obolibrary.org/obo/RO_0002436> ;
   biolink:provided_by "STRING" ;
   biolink:category biolink:GeneToGeneAssociation .
 
@@ -240,7 +240,6 @@ Using reification, the previous example can be easily converted to RDF using [KG
   rdf:subject <http://www.ncbi.nlm.nih.gov/gene/381> ;
   rdf:predicate biolink:interacts_with ;
   rdf:object <http://www.ncbi.nlm.nih.gov/gene/2081> ;
-  biolink:relation <http://purl.obolibrary.org/obo/RO_0002436> ;
   biolink:provided_by "STRING" ;
   biolink:category biolink:GeneToGeneAssociation .
 ```
