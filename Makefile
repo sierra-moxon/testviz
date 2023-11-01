@@ -171,9 +171,13 @@ gendoc: $(DOCDIR)
 	$(RUN) generate_viz_json
 	cp $(SRC)/docs/*md $(DOCDIR) ; \
 	cp -r $(SRC)/docs/images $(DOCDIR)/images ; \
+	# the .json cp here is the data required for the d3 visualizations
 	cp $(SRC)/docs/*.json $(DOCDIR) ; \
 	cp $(SRC)/docs/*.html $(DOCDIR) ; \
+	# this supports the display of our d3 visualizations
 	cp $(SRC)/docs/*.css $(DOCDIR) ; \
+	# this is necessary for the jinja template to incorporate the about.md file into the homepage of the index.md file
+	cp $(SRC)/docs/about.md $(SRC)/$(TEMPLATEDIR); \
 	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(SRC)/$(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
 
 
