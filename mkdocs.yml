@@ -12,8 +12,7 @@ plugins:
   - mermaid2
 nav:
   # - Home: home.md
-  - Index: index.md
-  - About: about.md
+  - Model Components: index.md
   - Visualize Categories: categories.html
   - Visualize Predicates: predicates.html
   - Visualize Aspects: aspects.html
