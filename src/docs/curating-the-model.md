@@ -38,7 +38,12 @@ To add an entity class to Biolink Model you need to determine the following:
     - For representing an instance of this entity class determine the identifier namespace and valid prefix(es)
   - What are the mapping(s) for this class?
     - Mappings are a way of rooting this new entity class in the context of other ontologies, thesauri, controlled vocabularies and taxonomies
-    - Determine the level of granularity for your mappings where they can be divided into 5 types: `related_mappings`, `broad_mappings`, `narrow_mappings` `close_mappings`, `exact_mappings`
+    - Determine the level of granularity for your mappings where they can be divided into 5 types: 
+      - `related_mappings`, 
+      - `broad_mappings`, 
+      - `narrow_mappings` 
+      - `close_mappings`, 
+      - `exact_mappings`
 
 
 As an example, let's consider the definition of the entity class `gene`:
@@ -75,28 +80,12 @@ As an example, let's consider the definition of the entity class `gene`:
       - PomBase
 ```
 
-In the above YAML snippet, `is_a`, `aliases`, `slots`, `exact_mappings`, and `id_prefixes` are slots from linkML where each slot has a specific meaning and they add semantics to the class definition.
+In the above YAML snippet, `is_a`, `aliases`, `slots`, `exact_mappings`, and `id_prefixes` are 
+LinkML modeling language components that help capture details about the `biolink:Gene` class.
 
-In addition to the aforementioned slots, linkML provides ways to leverage mixin classes to reuse certain slots across different classes.
-
-Say you want to use the mixin class `thing with taxon` that defines an `in taxon` slot.
-
-You can achieve that as follows:
-
-```yaml
-  gene:
-    is_a: gene or gene product
-    mixins:
-      - thing with taxon
-    aliases: ['locus']
-    ...
-```
-
-In the above YAML snippet, we are explicitly defining the entity class `gene` to have `in taxon` as a slot in addition to all its slots, its parent slots, and all of its ancestor slots.
-
-There are [other linkML slots](https://linkml.github.io/linkml-model/docs/ClassDefinition#Attributes) that can be used to define your class and further capture the semantics of your class.
-
-For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
+There are [other linkML slots](https://linkml.github.io/linkml-model/docs/ClassDefinition#Attributes) that can be used to define your class and further capture the 
+semantics of your class. For more information on what each slot means and how to use them in Biolink Model, 
+refer to [Using the Modeling Language](using-the-modeling-language.md).
 
 
 ### Adding an Association class
@@ -104,12 +93,24 @@ For more information on what each slot means and how to use them in Biolink Mode
 These modeling principles/desiderata have guided modeling choices throughout the qualifier-based approach 
 to adding Association classes in Biolink.
 
-- Nodes should represent core domain concepts: If possible, IRIs for KG nodes should represent fundamental domain concepts (genes, chemicals, phenotypes, diseases, etc.) This facilitates connections between primary entities of interest with fewer hops, and avoids the need to create/maintain/resolve new IRIs. 
-   - Corollary: Limit dependencies on term creation by external ontologies:  We don’t want a scenario where we are waiting for external, unpredictable ontologies to add terms we need, e.g., addition of terms like ‘’severe bleeding” to HP, “early onset Alzheimers” to MONDO, or ‘’exposure to PM2.5” to ECTO.  
-- Use qualifiers to compose full node semantics: When an identifier/IRI does not exist for a node concept in a standard, Translator-approved ontology, use qualifiers to post-compose their meaning. This is preferred over minting new ontology terms at a more granular level than is practical, or using structured data objects as Statement subject/objects.
-- The ‘core triple’ should remain true if qualifiers are ignored: When using qualifiers, ensure that the core SPO triple remains true when qualifiers are ignored. (However, note that there may be one predicate used for the core triple and a different predicate for the qualified assertion.) If certain necessary qualifiers may violate this rule (e.g., ‘negated’), these should be flagged and NEVER ignored.
-- Control predicate proliferation: When deciding where to place Statement semantics, choose modeling approaches that avoid a potential for an explosion of predicates. Pushing semantics into qualifiers is one way to achieve this.
-- Represent information consistently: Where possible, a given type of semantics (e.g., gene aspect, direction of effect) should be represented using the same pattern across Statement types and components.  This will facilitate clear and consistent creation of data by KPs, and simplify query construction and answering.
+- Nodes should represent core domain concepts: If possible, IRIs for KG nodes should represent fundamental domain 
+concepts (genes, chemicals, phenotypes, diseases, etc.) This facilitates connections between primary entities of interest 
+with fewer hops, and avoids the need to create/maintain/resolve new IRIs. 
+   - Corollary: Limit dependencies on term creation by external ontologies:  We don’t want a scenario where we are 
+  waiting for external, unpredictable ontologies to add terms we need, e.g., addition of terms like ‘’severe bleeding” 
+  to HP, “early onset Alzheimers” to MONDO, or ‘’exposure to PM2.5” to ECTO.  
+- Use qualifiers to compose full node semantics: When an identifier/IRI does not exist for a node concept in a standard, 
+Translator-approved ontology, use qualifiers to post-compose their meaning. This is preferred over minting new ontology 
+terms at a more granular level than is practical, or using structured data objects as Statement subject/objects.
+- The ‘core triple’ should remain true if qualifiers are ignored: When using qualifiers, ensure that the core SPO triple
+remains true when qualifiers are ignored. (However, note that there may be one predicate used for the core triple and a 
+different predicate for the qualified assertion.) If certain necessary qualifiers may violate this rule (e.g., ‘negated’), 
+these should be flagged and NEVER ignored.
+- Control predicate proliferation: When deciding where to place Statement semantics, choose modeling approaches that 
+avoid a potential for an explosion of predicates. Pushing semantics into qualifiers is one way to achieve this.
+- Represent information consistently: Where possible, a given type of semantics (e.g., gene aspect, direction of effect) 
+should be represented using the same pattern across Statement types and components.  This will facilitate clear and 
+consistent creation of data, and simplify query construction and answering.
 
 As an example, let's consider the definition of class  `chemical affects gene association`:
 
@@ -190,7 +191,7 @@ For more information on qualifiers, please refer to [Reading a Qualifier Based S
 For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
 
 
-### Adding a predicate/relation
+### Adding a predicate
 
 A predicate is a slot that links two instances of a class. 
 
@@ -202,17 +203,24 @@ To add a predicate to Biolink Model you need to determine the following:
   - What are the domain and range constraints (if any)?
     - Determine which type of entity classes this predicate can link
   - What are the mapping(s) for this slot?
-    - Mappings are a way of rooting this new association in the context of other ontologies, thesauri, controlled vocabularies and taxonomies
-    - Determine the level of granularity for your mappings--they can be divided into 5 types: `related_mappings`, `broad_mappings`, `narrow_mappings` `close_mappings`, `exact_mappings`
-    # TODO: add the predicate discussion about inverse of canon to this document.
+    - Mappings are a way of rooting this new association in the context of other ontologies, thesauri, controlled 
+    vocabularies and taxonomies
+    - Determine the level of granularity for your mappings--they can be divided into 5 types: 
+      - `related_mappings`
+      - `broad_mappings`
+      - `narrow_mappings` 
+      - `close_mappings`
+      - `exact_mappings`
   - Determine the inverse of the predicate, and add it (specifying the inverse property on each of the two predicates)
-    - In general, the canonical direction of the predicate should contain the descriptive information about the predicate while its inverse can be minimally defined.
+    - In general, the canonical direction of the predicate should contain the descriptive information about the 
+    predicate while its inverse can be minimally defined.
 
 
 As an example, let's consider the definition of slot `interacts with`:
 
 ```yaml
   interacts with:
+    mixin: true
     domain: named thing
     range: named thing
     description: >-
@@ -229,8 +237,6 @@ As an example, let's consider the definition of slot `interacts with`:
       - RO:0002130
       - SEMMEDDB:complicates
 ```
-
-In the above YAML snippet, `domain`, `range`, `description`, `is_a`, `in_subset`, `symmetric`, `exact_mappings` and `narrow_mappings` are slots from linkML where each slot has a specific meaning and they add semantics to the slot definition.
 
 For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
 
@@ -255,7 +261,12 @@ To add a node/edge property to Biolink Model you need to determine the following
     - Determine which type of classes can have this property and what the value space for this property should be
   - What are the mapping(s) for this slot?
     - Mappings are a way of rooting this new property in the context of other ontologies, thesauri, controlled vocabularies and taxonomies
-    - Determine the level of granularity for your mappings--they can be divided into 5 types: `related_mappings`, `broad_mappings`, `narrow_mappings` `close_mappings`, `exact_mappings`
+    - Determine the level of granularity for your mappings--they can be divided into 5 types: 
+       - `related_mappings`
+       - `broad_mappings`
+       - `narrow_mappings`
+       - `close_mappings`
+       - `exact_mappings`
 
 
 As an example, let's consider the slot `name` which is a node property:
@@ -277,45 +288,40 @@ As an example, let's consider the slot `name` which is a node property:
       - gpi:DB_Object_Name
 ```
 
-
-As another example, let's consider the slot `relation` which is an edge property:
-
-```yaml
-  relation:
-    is_a: association slot
-    description: >-
-      The relation which describes an association between a subject and an object in a more granular manner.
-      Usually this is a term from Relation Ontology, but it can be any edge CURIE.
-    domain: association
-    range: uriorcurie
-    required: true
-```
-
-In the above YAML snippets, `is_a`, `aliases`, `domain`, `range`, `description`, `in_subset`, `required`, `slot_uri`, `exact_mappings` are slots from linkML where each slot has a specific meaning and they add semantics to the slot definition.
-
-There are [other linkML slots](https://linkml.github.io/linkml-model/docs/ClassDefinition#Attributes) that can be used to define your class and represent the semantics of your class.
-
-For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
+For more information, refer to [Using the Modeling Language](using-the-modeling-language.md).
 
 
 ### Managing mappings
 
-In the previous sections there were references to mappings and differentiating these mappings based on their granularity, which can be a bit of a nuanced exercise.
+In the previous sections there were references to mappings and differentiating these mappings based on their granularity, 
+which can be a bit of a nuanced exercise.
 
-What does it mean for a external concept (or predicate or property) to be one of `related_mappings`, `broad_mappings`, `narrow_mappings` `close_mappings`, `exact_mappings`?
+What does it mean for an external concept (or predicate or property) to be one of: 
+  - `related_mappings`
+  - `broad_mappings`
+  - `narrow_mappings`
+  - `close_mappings`
+  - `exact_mappings`?
 
 Here is a rule of thumb on how to determine the granularity of mapping:
-- An external concept can be considered an exact mapping to a Biolink Model class or slot if the former can be used interchangeably with the latter. That is, the semantics are identical and any transitive property that the external concept might bring into the model should not violate the internal consistency of the model
-- If it is difficult to determine if an external concept can be considered an exact mapping then it is much safer to treat it as a close mapping
-- If an external concept can be treated a sub-class of the Biolink Model class or slot then it can be treated as a narrow mapping
-- If an external concept can be treated as a super-class of the Biolink Model class or slot then it can be treated as a broad mapping
-- If an external concept is distantly related to a Biolink Model class or slot then it can be treated as a related mapping
+- An external concept can be considered an exact mapping to a Biolink Model class or slot if the former can be used 
+interchangeably with the latter. That is, the semantics are identical and any transitive property that the external 
+concept might bring into the model should not violate the internal consistency of the model
+- If it is difficult to determine if an external concept can be considered an exact mapping then it is much safer to 
+treat it as a close mapping
+- If an external concept can be treated a sub-class of the Biolink Model class or slot then it can be treated as a 
+narrow mapping
+- If an external concept can be treated as a super-class of the Biolink Model class or slot then it can be treated
+as a broad mapping
+- If an external concept is distantly related to a Biolink Model class or slot then it can be treated as a 
+related mapping
 
 ### Examples
 
-The [NCATS Biomedical Translator Consortium](https://ncats.nih.gov/translator) has adopted Biolink Model as an open-source upper-level data model that supports semantic harmonization and 
-reasoning across diverse Translator ‘knowledge sources’. The model serves a central role in the Translator program and forms the 
-architectural basis of the Translator system, as described below. 
+The [NCATS Biomedical Translator Consortium](https://ncats.nih.gov/translator) has adopted Biolink Model as an open-source upper-level 
+data model that supports semantic harmonization and reasoning across diverse Translator ‘knowledge sources’. 
+The model serves a central role in the Translator program and forms the architectural basis of the Translator system, 
+as described below. 
 
 The Translator program aims to develop a comprehensive, relational, N-dimensional infrastructure designed to integrate disparate data 
 sources—including objective signs and symptoms of disease, drug effects, chemical and genetic interactions, cell and organ pathology, 
