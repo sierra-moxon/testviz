@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -240,11 +240,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#direct">
     Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
   </a>
 </li>
 </ul>
@@ -534,57 +529,6 @@ is_a: annotation
 slots:
 - has unit
 - has numeric value
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: quantity value
-description: A value of an attribute that is quantitative and measurable, expressed
-  as a combination of a unit and a numeric value
-from_schema: https://w3id.org/biolink/biolink-model
-is_a: annotation
-attributes:
-  has unit:
-    name: has unit
-    description: connects a quantity value to a unit
-    in_subset:
-    - samples
-    from_schema: https://w3id.org/biolink/biolink-model
-    exact_mappings:
-    - qud:unit
-    - IAO:0000039
-    close_mappings:
-    - EFO:0001697
-    - UO-PROPERTY:is_unit_of
-    narrow_mappings:
-    - SNOMED:has_concentration_strength_denominator_unit
-    - SNOMED:has_concentration_strength_numerator_unit
-    - SNOMED:has_presentation_strength_denominator_unit
-    - SNOMED:has_presentation_strength_numerator_unit
-    - SNOMED:has_unit_of_presentation
-    domain: quantity value
-    multivalued: false
-    alias: has_unit
-    owner: quantity value
-    domain_of:
-    - quantity value
-    range: unit
-  has numeric value:
-    name: has numeric value
-    description: connects a quantity value to a number
-    in_subset:
-    - samples
-    from_schema: https://w3id.org/biolink/biolink-model
-    exact_mappings:
-    - qud:quantityValue
-    domain: quantity value
-    multivalued: false
-    alias: has_numeric_value
-    owner: quantity value
-    domain_of:
-    - quantity value
-    range: double
 
 </code></pre>
 </details>

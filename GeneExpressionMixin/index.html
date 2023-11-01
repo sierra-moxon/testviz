@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -235,11 +235,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#direct">
     Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
   </a>
 </li>
 </ul>
@@ -383,81 +378,6 @@ slot_usage:
     domain_of:
     - gene expression mixin
     - gene to expression site association
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: gene expression mixin
-description: Observed gene expression intensity, context (site, stage) and associated
-  phenotypic status within which the expression occurs.
-from_schema: https://w3id.org/biolink/biolink-model
-mixin: true
-slot_usage:
-  quantifier qualifier:
-    name: quantifier qualifier
-    description: Optional quantitative value indicating degree of expression.
-    domain_of:
-    - gene expression mixin
-    - gene to expression site association
-attributes:
-  quantifier qualifier:
-    name: quantifier qualifier
-    description: Optional quantitative value indicating degree of expression.
-    from_schema: https://w3id.org/biolink/biolink-model
-    is_a: association slot
-    domain: association
-    alias: quantifier_qualifier
-    owner: gene expression mixin
-    domain_of:
-    - gene expression mixin
-    - gene to expression site association
-    range: ontology class
-  expression site:
-    name: expression site
-    description: location in which gene or protein expression takes place. May be
-      cell, tissue, or organ.
-    examples:
-    - value: UBERON:0002037
-      description: cerebellum
-    from_schema: https://w3id.org/biolink/biolink-model
-    is_a: association slot
-    domain: association
-    alias: expression_site
-    owner: gene expression mixin
-    domain_of:
-    - gene expression mixin
-    range: anatomical entity
-  stage qualifier:
-    name: stage qualifier
-    description: stage during which gene or protein expression of takes place.
-    examples:
-    - value: UBERON:0000069
-      description: larval stage
-    in_subset:
-    - translator_minimal
-    from_schema: https://w3id.org/biolink/biolink-model
-    is_a: association slot
-    domain: association
-    alias: stage_qualifier
-    owner: gene expression mixin
-    domain_of:
-    - gene expression mixin
-    - gene to expression site association
-    range: life stage
-  phenotypic state:
-    name: phenotypic state
-    description: in experiments (e.g. gene expression) assaying diseased or unhealthy
-      tissue, the phenotypic state can be put here, e.g. MONDO ID. For healthy tissues,
-      use XXX.
-    from_schema: https://w3id.org/biolink/biolink-model
-    is_a: association slot
-    domain: association
-    alias: phenotypic_state
-    owner: gene expression mixin
-    domain_of:
-    - gene expression mixin
-    range: disease or phenotypic feature
 
 </code></pre>
 </details>

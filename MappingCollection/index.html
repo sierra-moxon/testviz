@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -232,11 +232,6 @@
     Direct
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -318,30 +313,6 @@ from_schema: https://w3id.org/biolink/biolink-model
 abstract: true
 slots:
 - predicate mappings
-tree_root: true
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: mapping collection
-description: A collection of deprecated mappings.
-from_schema: https://w3id.org/biolink/biolink-model
-abstract: true
-attributes:
-  predicate mappings:
-    name: predicate mappings
-    description: A collection of relationships that are not used in biolink, but have
-      biolink patterns that can  be used to replace them.  This is a temporary slot
-      to help with the transition to the fully qualified predicate model in Biolink3.
-    from_schema: https://w3id.org/biolink/biolink-model
-    multivalued: true
-    alias: predicate_mappings
-    owner: mapping collection
-    domain_of:
-    - mapping collection
-    range: predicate mapping
-    inlined_as_list: true
 tree_root: true
 
 </code></pre>

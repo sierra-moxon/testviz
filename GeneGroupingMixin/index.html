@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -235,11 +235,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#direct">
     Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
   </a>
 </li>
 </ul>
@@ -357,28 +352,6 @@ from_schema: https://w3id.org/biolink/biolink-model
 mixin: true
 slots:
 - has gene or gene product
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: gene grouping mixin
-description: any grouping of multiple genes or gene products
-from_schema: https://w3id.org/biolink/biolink-model
-mixin: true
-attributes:
-  has gene or gene product:
-    name: has gene or gene product
-    description: connects an entity with one or more gene or gene products
-    from_schema: https://w3id.org/biolink/biolink-model
-    is_a: node property
-    domain: named thing
-    multivalued: true
-    alias: has_gene_or_gene_product
-    owner: gene grouping mixin
-    domain_of:
-    - gene grouping mixin
-    range: gene
 
 </code></pre>
 </details>

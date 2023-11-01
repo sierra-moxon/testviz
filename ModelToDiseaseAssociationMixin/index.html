@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -237,11 +237,6 @@
     Direct
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -346,31 +341,6 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
-<details>
-<pre><code class="language-yaml">name: model to disease association mixin
-description: This mixin is used for any association class for which the subject (source
-  node) plays the role of a 'model', in that it recapitulates some features of the
-  disease in a way that is useful for studying the disease outside a patient carrying
-  the disease
-from_schema: https://w3id.org/biolink/biolink-model
-mixin: true
-slot_usage:
-  subject:
-    name: subject
-    description: The entity that serves as the model of the disease. This may be an
-      organism, a strain of organism, a genotype or variant that exhibits similar
-      features, or a gene that when mutated exhibits features of the disease
-  predicate:
-    name: predicate
-    description: The relationship to the disease
-    domain_of:
-    - predicate mapping
-    - association
-    subproperty_of: model of
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: model to disease association mixin
 description: This mixin is used for any association class for which the subject (source

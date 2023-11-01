@@ -119,13 +119,13 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
-        Index
+<a class="md-nav__link" href="../about/">
+        About
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-        About
+<a class="md-nav__link" href="..">
+        Index
       </a>
 </li>
 <li class="md-nav__item">
@@ -250,11 +250,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#direct">
     Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
   </a>
 </li>
 </ul>
@@ -435,96 +430,6 @@ mixin: true
 slots:
 - synonym
 - xref
-
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: gene product mixin
-id_prefixes:
-- UniProtKB
-- gtpo
-- PR
-description: The functional molecular product of a single gene locus. Gene products
-  are either proteins or functional RNA molecules.
-from_schema: https://w3id.org/biolink/biolink-model
-exact_mappings:
-- WIKIDATA:Q424689
-- GENO:0000907
-- NCIT:C26548
-is_a: gene or gene product
-mixin: true
-attributes:
-  synonym:
-    name: synonym
-    description: Alternate human-readable names for a thing
-    in_subset:
-    - translator_minimal
-    from_schema: https://w3id.org/biolink/biolink-model
-    aliases:
-    - alias
-    narrow_mappings:
-    - skos:altLabel
-    - gff3:Alias
-    - AGRKB:synonyms
-    - gpi:DB_Object_Synonyms
-    - HANCESTRO:0330
-    - IAO:0000136
-    - RXNORM:has_tradename
-    is_a: node property
-    domain: named thing
-    multivalued: true
-    alias: synonym
-    owner: gene product mixin
-    domain_of:
-    - named thing
-    - gene product mixin
-    range: label type
-  xref:
-    name: xref
-    description: A database cross reference or alternative identifier for a NamedThing
-      or edge between two  NamedThings.  This property should point to a database
-      record or webpage that supports the existence of the edge, or  gives more detail
-      about the edge. This property can be used on a node or edge to provide multiple
-      URIs or CURIE cross references.
-    in_subset:
-    - translator_minimal
-    from_schema: https://w3id.org/biolink/biolink-model
-    aliases:
-    - dbxref
-    - Dbxref
-    - DbXref
-    - record_url
-    - source_record_urls
-    narrow_mappings:
-    - gff3:Dbxref
-    - gpi:DB_Xrefs
-    domain: named thing
-    multivalued: true
-    alias: xref
-    owner: gene product mixin
-    domain_of:
-    - named thing
-    - publication
-    - retrieval source
-    - gene
-    - gene product mixin
-    range: uriorcurie
-  name:
-    name: name
-    description: genes are typically designated by a short symbol and a full name.
-      We map the symbol to the default display name and use an additional slot for
-      full name
-    from_schema: https://w3id.org/biolink/biolink-model
-    domain: entity
-    slot_uri: rdfs:label
-    alias: name
-    owner: gene product mixin
-    domain_of:
-    - attribute
-    - entity
-    - macromolecular machine mixin
-    range: symbol type
 
 </code></pre>
 </details>
