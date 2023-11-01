@@ -1,8 +1,12 @@
 # Slot: {{ gen.name(element) }}
+{% if element.deprecated %}
+* <span style="color: red;"><strong>* __DEPRECATED__ </strong>:</span>
+{% endif %}
 
 {%- if header -%}
 {{header}}
 {%- endif -%}
+
 
 {% if element.description %}
 {% set element_description_lines = element.description.split('\n') %}

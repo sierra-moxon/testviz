@@ -1,4 +1,7 @@
 # Class: {{ gen.name(element) }}
+{% if element.deprecated %}
+* <span style="color: red;"><strong>* __DEPRECATED__ </strong>:</span>
+{% endif %}
 
 {%- if header -%}
 {{header}}
