@@ -12,18 +12,23 @@ Before curating the Biolink Model, we recommend that you familiarize yourself wi
 In Biolink Model all the curation should happen in one place: [biolink-model.yaml](../../biolink-model.yaml)
 This is the one source of truth for the model.
 
-This section explores how to go about adding new classes and slots to the model.
+## PR Guidelines
+
+- All of our modeling and example data should be as clear as possible. 
+- Textual annotations on classes, slots and enumerations should be written with minimal jargon
+- If it is necessary to retain external content as-is, like descriptions, they should be attributed using the 
+appropriate LinkML meta-slots, and we should also strive to provide clarification in appropriate meta-slots
+- The structural definitions of elements (relationships with other elements) should agree with the textual description
+(and vice versa)
+- Team members  adding new modeling bear the responsibility of re-using existing elements or demonstrating to the team 
+how their proposed alternative modeling is generally superior. When there are disagreements about modeling style, the 
+disagreeing parties should each prepare two different implementations of the required modeling and talk through the 
+advantages and disadvantages of each. This can be simplified by keeping pull requests small. Diligent modeling efforts 
+should be acknowledged, especially for newer contributors. A decision to not merge
+in part of the work does not mean that the work isn’t appreciated or has been thrown away, as closed but unmerged pull 
+requests could be revisited in the future.
 
 ### Adding an Entity class
-
-An entity class represents entities like Genes, Diseases, Chemical Substances, etc.
-
-Instances of these Entity classes are represented as nodes in a graph.
-
-Biolink Model has several entity classes such as `gene`, `disease`, `phenotypic feature`, `chemical substance`.
-
-All these classes are arranged in a hierarchy with the root of all entities being the `named thing` class.
-
 
 To add an entity class to Biolink Model you need to determine the following:
   - What is an appropriate name for this entity?
@@ -44,44 +49,6 @@ To add an entity class to Biolink Model you need to determine the following:
       - `narrow_mappings` 
       - `close_mappings`, 
       - `exact_mappings`
-
-
-As an example, let's consider the definition of the entity class `gene`:
-
-```yaml
-  gene:
-    is_a: gene or gene product
-    aliases: ['locus']
-    slots:
-      - id
-      - name
-      - symbol
-      - description
-      - synonym
-      - xref
-    exact_mappings:
-      - SO:0000704
-      - SIO:010035
-      - WIKIDATA:Q7187
-    id_prefixes:
-      - NCBIGene
-      - ENSEMBL
-      - HGNC
-      - UniProtKB
-      - MGI
-      - ZFIN
-      - dictyBase
-      - WB
-      - WormBase
-      - FlyBase
-      - FB
-      - RGD
-      - SGD
-      - PomBase
-```
-
-In the above YAML snippet, `is_a`, `aliases`, `slots`, `exact_mappings`, and `id_prefixes` are 
-LinkML modeling language components that help capture details about the `biolink:Gene` class.
 
 There are [other linkML slots](https://linkml.github.io/linkml-model/docs/ClassDefinition#Attributes) that can be used to define your class and further capture the 
 semantics of your class. For more information on what each slot means and how to use them in Biolink Model, 
@@ -215,36 +182,12 @@ To add a predicate to Biolink Model you need to determine the following:
     - In general, the canonical direction of the predicate should contain the descriptive information about the 
     predicate while its inverse can be minimally defined.
 
-
-As an example, let's consider the definition of slot `interacts with`:
-
-```yaml
-  interacts with:
-    mixin: true
-    domain: named thing
-    range: named thing
-    description: >-
-      holds between any two entities that directly or indirectly interact with each other
-    is_a: related to
-    in_subset:
-      - translator_minimal
-    symmetric: true
-    exact_mappings:
-      - RO:0002434
-    narrow_mappings:
-      - RO:0002103
-      - RO:0002120
-      - RO:0002130
-      - SEMMEDDB:complicates
-```
-
 For more information on what each slot means and how to use them in Biolink Model, refer to [Using the Modeling Language](using-the-modeling-language.md).
 
 
 ### Adding properties
 
 You can add slots that represent node properties or edge properties.
-
 
 To add a node/edge property to Biolink Model you need to determine the following:
   - What is an appropriate name for this slot?
@@ -315,74 +258,3 @@ narrow mapping
 as a broad mapping
 - If an external concept is distantly related to a Biolink Model class or slot then it can be treated as a 
 related mapping
-
-### Examples
-
-The [NCATS Biomedical Translator Consortium](https://ncats.nih.gov/translator) has adopted Biolink Model as an open-source upper-level 
-data model that supports semantic harmonization and reasoning across diverse Translator ‘knowledge sources’. 
-The model serves a central role in the Translator program and forms the architectural basis of the Translator system, 
-as described below. 
-
-The Translator program aims to develop a comprehensive, relational, N-dimensional infrastructure designed to integrate disparate data 
-sources—including objective signs and symptoms of disease, drug effects, chemical and genetic interactions, cell and organ pathology, 
-and other relevant biological entities and relations—and reason over the integrated data to rapidly derive biomedical insights. 
-The ultimate goal of Translator is to augment human reasoning and thereby accelerate translational science and knowledge discovery. 
-
-To achieve its ambitious goal, the Translator project assembled a diverse interdisciplinary team and a variety of biomedical data 
-sources, including electronic health record data, clinical trial data, genomic and other -omics data, chemical reaction data, and 
-drug data. There are hundreds of data sources in the Translator ecosystem, each of which had its own data representation and were 
-in formats that were not compatible or interoperable. Moreover, groups within the Translator Consortium had integrated the data 
-sources as knowledge sources within independent KGs, but these KGs were developed using different technologies and formalisms 
-such as property graphs in Neo4j and semantically-linked data via RDF and OWL. 
-
-In order to interoperate between knowledge sources and reason across KGs, Biolink Model was adopted as the common dialect, thus 
-enabling queries over the entire Translator KG ecosystem. The result was a federated, harmonized ecosystem that supports advanced 
-reasoning and inference to derive biomedical insights based on user queries.
-
-An example Translator use case involved a collaboration with investigators at the Hugh Kaul Precision Medicine Institute (PMI) at 
-the University of Alabama at Birmingham. PMI investigators posed the following natural-language question to the Translator Consortium: 
-what chemicals or drugs might be used to treat neurological disorders such as epilepsy that are associated with genomic 
-variants of RHOBTB2? The investigators noted that RHOBTB2 variants cause an accumulation of RHOBTB2 protein and that this 
-accumulation is believed to be the cause of the neurological disorder. 
-
-To answer the PMI investigator’s question, Translator team members structured the following query: 
-> NCBIGene:23221 (CURIE for RHOBTB2) -> [biolink:entity_regulates_entity, biolink:genetically_interacts_with] -> biolink:Protein, 
-biolink:Gene -> [biolink:related_to] -> biolink:SmallMolecule
-
-(see Figure 2 below). Because of the hierarchical structure of the Biolink model,
-the use of biolink:related_to also will return more specific predicates such as biolink:negatively_regulates and biolink:positively_regulates. 
-The objective was to identify drugs or chemicals that might regulate RHOBTB2 in some manner and thereby reduce the variant-induced 
-accumulation of RHOBTB2 and associated neurological symptoms. As all nodes and edges within the Translator KG ecosystem are 
-annotated to Biolink Model classes and attributes, a Translator query can be constructed from a natural-language user question 
-and return results across a multitude of independent data sources. In addition, because the model employs hierarchical classes, 
-with inheritance and polymorphism, natural-language queries translated to graph queries using Biolink Model syntax can be 
-constructed at varying levels of granularity and return results from all levels of the hierarchy. Finally, because Biolink 
-Model provides attributes on both edges and nodes that record provenance and evidence for these knowledge statements, each 
-result is annotated with the trail of evidence that supports it.
-
-When Translator team members sent the query to the Translator system, it returned several candidates of interest to PMI investigators, 
-including fostamatinib disodium (CHEMBL.COMPOUND:CHEMBL3989516) and ruxolitinib (CHEMBL.COMPOUND:CHEMBL1789941). 
-A review of the supporting evidence provided by Translator indicates that these are approved drugs that either directly or 
-indirectly reduce or otherwise regulate the expression of RHOBTB2. Thus, Biolink Model helped Translator teams bring data 
-together into a single system, thereby reducing the burden on the user to find and manually assemble data from these independent resources 
-(see citation below).
-
-![Figure 2](images/translator_example_figure2.png)
-Figure 2. An overview of the Translator architecture that supports biomedical KG-based question-answering, including the 
-role of Biolink Model, in the context of an example question. In this example, a user has posed the natural-language question: 
-what chemicals or drugs might be used to treat neurological disorders such as epilepsy that are associated with genomic variants of 
-RHOBTB2? The question is translated into a graph query, as shown in the top left panel, which is then translated into a 
-Translator standard machine query (not shown). The KG shown in the second panel from the left is derived from a variety
-of diverse ‘knowledge sources’, a subset of which are displayed in the figure, that are exposed by Translator ‘knowledge providers’. 
-Biolink Model provides standardization and semantic harmonization across the disparate knowledge sources, thereby allowing 
-them to be integrated into a KG capable of supporting question-answering. In this example, Translator provided two answers or 
-results of interest to the investigative team that posed the question, namely, fostamatinib disodium and ruxolitinib, as shown 
-in the bottom left panel. 
-
-
-Example is taken directly from: 
-Biolink Model: A Universal Schema for Knowledge Graphs in Clinical, Biomedical, and Translational Science (2022).
-Deepak R. Unni, Sierra A.T. Moxon, Michael Bada, Matthew Brush, Richard Bruskiewich, Paul Clemons, Vlado Dancik, 
-Michel Dumontier, Karamarie Fecho, Gustavo Glusman, Jennifer J. Hadlock, Nomi L. Harris, Arpita Joshi, Tim Putman, 
-Guangrong Qin, Stephen A. Ramsey, Kent A. Shefchek, Harold Solbrig, Karthik Soman, Anne T. Thessen, Melissa A. Haendel, 
-Chris Bizon, Christopher J. Mungall, the Biomedical Data Translator Consortium. [https://arxiv.org/abs/2203.13906](https://arxiv.org/abs/2203.13906)
